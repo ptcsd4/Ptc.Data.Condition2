@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3809167-0CED-4082-A30C-D4BA07DA49BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ptc.Data.Condition2.DataBase</RootNamespace>
+    <AssemblyName>Ptc.Data.Condition2.DataBase</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MSSQL\ActivityItem.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\ActivityItemVoucher.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Announcement.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Arguments.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\AspNetRoles.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\AspNetRolesDataRange.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\AspNetRolesPageAuth.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\AspNetUserClaims.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\AspNetUserLogins.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\AspNetUsers.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\AspNetUsersDataRange.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\AspNetUsersPageAuth.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Bank.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Banner.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\BranchCounter.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Brand.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Category.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\CityList.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\CompareString.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Coupon.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\CouponSN.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Course.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\CourseLocations.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\CourseSession.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\ExchangeCondition.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\HLHApp_DemoEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HLHApp_DemoEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\HLHApp_DemoEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\HLHApp_DemoEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HLHApp_DemoEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Item.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\Lottery.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\MachineType.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\MemberFavoriteActivityItem.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\OpenPointMemberStar.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\PageContent.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\RewardActivity.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\SendBackReason.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\SETOP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SETOP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\SETOP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\SETOP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SETOP.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\ShopChannel.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\StopMachine.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\sysdiagrams.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\TempVoucherHeader.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\User.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\UserCoupon.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\UserCourseLocation.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\UserProductWarranty.cs">
+      <DependentUpon>HLHApp_DemoEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQL\VoucherHeader.cs">
+      <DependentUpon>SETOP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="MSSQL\HLHApp_DemoEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HLHApp_DemoEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MSSQL\HLHApp_DemoEntities.edmx.diagram">
+      <DependentUpon>HLHApp_DemoEntities.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="MSSQL\SETOP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SETOP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MSSQL\SETOP.edmx.diagram">
+      <DependentUpon>SETOP.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MSSQL\HLHApp_DemoEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HLHApp_DemoEntities.Context.cs</LastGenOutput>
+      <DependentUpon>HLHApp_DemoEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="MSSQL\HLHApp_DemoEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HLHApp_DemoEntities.edmx</DependentUpon>
+      <LastGenOutput>HLHApp_DemoEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="MSSQL\SETOP.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SETOP.edmx</DependentUpon>
+      <LastGenOutput>SETOP.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MSSQL\SETOP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SETOP.edmx</DependentUpon>
+      <LastGenOutput>SETOP.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

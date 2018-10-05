@@ -1,0 +1,2084 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OPMainModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActivityItem">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ParentCode" Type="char" MaxLength="10" />
+          <Property Name="PICPointSystemCode" Type="char" MaxLength="10" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="ExchangeEndDate" Type="date" />
+          <Property Name="LotteryDrawingDate" Type="date" />
+          <Property Name="ActivityItemType" Type="int" Nullable="false" />
+          <Property Name="ParentItemType" Type="int" Nullable="false" />
+          <Property Name="CardType" Type="int" Nullable="false" />
+          <Property Name="CollectType" Type="int" Nullable="false" />
+          <Property Name="TargetType" Type="int" Nullable="false" />
+          <Property Name="PointType" Type="int" Nullable="false" />
+          <Property Name="StockShowType" Type="int" Nullable="false" />
+          <Property Name="VerifyType" Type="int" Nullable="false" />
+          <Property Name="EachExchangeLimitQty" Type="int" Nullable="false" />
+          <Property Name="MemberExchangeLimitQty" Type="int" Nullable="false" />
+          <Property Name="PackQty" Type="int" Nullable="false" />
+          <Property Name="PackageDailyQty" Type="int" Nullable="false" />
+          <Property Name="StarQty" Type="int" />
+          <Property Name="SystemTopStort" Type="int" />
+          <Property Name="KeyInTopSort" Type="int" />
+          <Property Name="OutOfStockNotShow" Type="bit" Nullable="false" />
+          <Property Name="IsTimeLimited" Type="bit" />
+          <Property Name="IsEShop" Type="bit" Nullable="false" />
+          <Property Name="IsFirstGift" Type="bit" Nullable="false" />
+          <Property Name="IsDisabled" Type="bit" />
+          <Property Name="BrandID" Type="int" Nullable="false" />
+          <Property Name="BankCode" Type="char" MaxLength="3" />
+          <Property Name="CoBranderCheckCode" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="10" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="100" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="LimitedExchangeTimesDescription" Type="nvarchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Notice" Type="nvarchar(max)" />
+          <Property Name="Specification" Type="nvarchar(max)" />
+          <Property Name="DiscountCondition1" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiscountCondition2" Type="nvarchar" MaxLength="50" />
+          <Property Name="XLImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="SImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CreateUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="RewardID" Type="char" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="ActivityItemVoucher">
+          <Key>
+            <PropertyRef Name="ActivityItemCode" />
+            <PropertyRef Name="VoucherHeaderCode" />
+          </Key>
+          <Property Name="ActivityItemCode" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ExchangeType" Type="int" Nullable="false" />
+          <Property Name="VoucherHeaderCode" Type="char" MaxLength="16" Nullable="false" />
+          <Property Name="IsAvailable" Type="bit" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReaminingQty" Type="int" />
+          <Property Name="VoucherStartDate" Type="datetime" />
+          <Property Name="VoucherEndDate" Type="datetime" />
+          <Property Name="ParentCode" Type="char" MaxLength="10" />
+          <Property Name="VoucherType" Type="int" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="TotalQty" Type="int" />
+          <Property Name="PackQty" Type="int" Nullable="false" />
+          <Property Name="Notice" Type="nvarchar(max)" />
+          <Property Name="FileIdentifyId" Type="char" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="PageAuth" Type="varchar(max)" />
+          <Property Name="DataRange" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetRolesDataRange">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoleID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Level" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="AspNetRolesPageAuth">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoleID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsDisabled" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="AuthType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="IsDisabled" Type="bit" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateUserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="AspNetUsersDataRange">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ID" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Level" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsDisabled" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsersPageAuth">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PageID" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="IsDisabled" Type="bit" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="AuthType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+          <Property Name="Url" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CoBranderCheckCode" Type="varchar" MaxLength="50" />
+          <Property Name="OPExchangeState" Type="nvarchar(max)" />
+          <Property Name="Notice" Type="nvarchar(max)" />
+          <Property Name="IsDisabled" Type="bit" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="XLImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="SImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="CrystalImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="BannerType" Type="int" Nullable="false" />
+          <Property Name="BrandID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="ShowOnFrontPageBanner" Type="bit" Nullable="false" />
+          <Property Name="ShowOnExchangeBanner" Type="bit" Nullable="false" />
+          <Property Name="ShowOnBrandBanner" Type="bit" Nullable="false" />
+          <Property Name="ShowOnOverviewBanner" Type="bit" Nullable="false" />
+          <Property Name="URI" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Notice" Type="nvarchar(max)" />
+          <Property Name="IsDisabled" Type="bit" Nullable="false" />
+          <Property Name="FrontPageSort" Type="int" />
+          <Property Name="ExchangeSort" Type="int" />
+          <Property Name="BrandSort" Type="int" />
+          <Property Name="OverviewSort" Type="int" />
+          <Property Name="StrategySort" Type="int" />
+          <Property Name="VerifyType" Type="int" Nullable="false" />
+          <Property Name="CarousellImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="OverviewImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CollectCategoryID" Type="int" />
+          <Property Name="RewardCode" Type="char" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="BannerItem">
+          <Key>
+            <PropertyRef Name="BannerCode" />
+            <PropertyRef Name="ActivityItemCode" />
+          </Key>
+          <Property Name="BannerCode" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="ActivityItemCode" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="eShopName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+          <Property Name="Url" Type="nvarchar" MaxLength="1000" />
+          <Property Name="eShopURL" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsDisabled" Type="bit" Nullable="false" />
+          <Property Name="IsHaveStore" Type="bit" Nullable="false" />
+          <Property Name="OPExchangeState" Type="nvarchar(max)" />
+          <Property Name="Notice" Type="nvarchar(max)" />
+          <Property Name="ActivityNotice" Type="nvarchar(max)" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="XLImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="SImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="IsDisabled" Type="bit" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompareString">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExchangeCondition">
+          <Key>
+            <PropertyRef Name="ActivityItemCode" />
+            <PropertyRef Name="ExchangeType" />
+          </Key>
+          <Property Name="ActivityItemCode" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ExchangeType" Type="int" Nullable="false" />
+          <Property Name="ExchangePoint" Type="int" />
+          <Property Name="ExchangeCash" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="ReaminingQty" Type="int" />
+          <Property Name="ActivityItemType" Type="int" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="ExchangedQty" Type="int" />
+          <Property Name="PointType" Type="int" Nullable="false" />
+          <Property Name="ExchangeContent" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="BrandID" Type="int" Nullable="false" />
+          <Property Name="ListPrice" Type="nvarchar" MaxLength="10" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Notice" Type="nvarchar(max)" />
+          <Property Name="Specification" Type="nvarchar(max)" />
+          <Property Name="SImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="XLImageFileName" Type="nvarchar" MaxLength="200" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CreateUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberFavoriteActivityItem">
+          <Key>
+            <PropertyRef Name="MID" />
+            <PropertyRef Name="ActivityItemCode" />
+          </Key>
+          <Property Name="MID" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="ActivityItemCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsFavorite" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OpenPointMemberStar">
+          <Key>
+            <PropertyRef Name="ActivityItemCode" />
+            <PropertyRef Name="MemberMID" />
+          </Key>
+          <Property Name="ActivityItemCode" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MemberMID" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PageContent">
+          <Key>
+            <PropertyRef Name="DisplayPage" />
+          </Key>
+          <Property Name="DisplayPage" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RewardActivity">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="OpointName" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="CollectStartDate" Type="date" Nullable="false" />
+          <Property Name="CollectEndDate" Type="date" Nullable="false" />
+          <Property Name="ExchangeEndDate" Type="date" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsDisabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StopMachine">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="StopRangeType" Type="int" Nullable="false" />
+          <Property Name="ViewContent" Type="nvarchar(max)" />
+          <Property Name="isExec" Type="bit" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CreateUpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUpdateUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempVoucherHeader">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="VoucherType" Type="int" Nullable="false" />
+          <Property Name="Code" Type="char" MaxLength="16" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ReaminingQty" Type="int" />
+          <Property Name="ActivityID" Type="char" MaxLength="10" />
+          <Property Name="ItemCode" Type="char" MaxLength="6" />
+          <Property Name="IsAvailable" Type="bit" />
+          <Property Name="VoucherStartDate" Type="datetime" />
+          <Property Name="VoucherEndDate" Type="datetime" />
+          <Property Name="TotalQty" Type="int" />
+          <Property Name="ErrorLog" Type="nvarchar(max)" />
+          <Property Name="VoucherBarcodeType" Type="int" Nullable="false" />
+          <Property Name="PointType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VoucherHeader">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="VoucherType" Type="int" Nullable="false" />
+          <Property Name="Code" Type="char" MaxLength="16" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ReaminingQty" Type="int" />
+          <Property Name="ActivityID" Type="char" MaxLength="10" />
+          <Property Name="ItemCode" Type="char" MaxLength="6" />
+          <Property Name="IsAvailable" Type="bit" />
+          <Property Name="VoucherStartDate" Type="datetime" />
+          <Property Name="VoucherEndDate" Type="datetime" />
+          <Property Name="TotalQty" Type="int" />
+          <Property Name="ErrorLog" Type="nvarchar(max)" />
+          <Property Name="VoucherBarcodeType" Type="int" Nullable="false" />
+          <Property Name="PointType" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Activity_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Banner" Type="Self.Banner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Banner">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_ActivityItem">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="0..1" />
+          <End Role="ActivityItem1" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityItem">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItem1">
+              <PropertyRef Name="ParentCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_Bank">
+          <End Role="Bank" Type="Self.Bank" Multiplicity="0..1" />
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="BankCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_RewardActivity">
+          <End Role="RewardActivity" Type="Self.RewardActivity" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RewardActivity">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="RewardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItemVoucher_ActivityItem">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="1" />
+          <End Role="ActivityItemVoucher" Type="Self.ActivityItemVoucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityItem">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItemVoucher">
+              <PropertyRef Name="ActivityItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetRolesDataRange_AspNetRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetRolesDataRange" Type="Self.AspNetRolesDataRange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetRolesDataRange">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetRolesPageAuth_AspNetRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetRolesPageAuth" Type="Self.AspNetRolesPageAuth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetRolesPageAuth">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsersDataRange_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUsersDataRange" Type="Self.AspNetUsersDataRange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsersDataRange">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsersPageAuth_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUsersPageAuth" Type="Self.AspNetUsersPageAuth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsersPageAuth">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BannerItem_ActivityItem">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="1" />
+          <End Role="BannerItem" Type="Self.BannerItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityItem">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="BannerItem">
+              <PropertyRef Name="ActivityItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BannerItem_Banner">
+          <End Role="Banner" Type="Self.Banner" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BannerItem" Type="Self.BannerItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banner">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="BannerItem">
+              <PropertyRef Name="BannerCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Category1" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExchangeCondition_ActivityProject">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="1" />
+          <End Role="ExchangeCondition" Type="Self.ExchangeCondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityItem">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ExchangeCondition">
+              <PropertyRef Name="ActivityItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OpenPointMemberStar_ActivityItem">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="1" />
+          <End Role="OpenPointMemberStar" Type="Self.OpenPointMemberStar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityItem">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OpenPointMemberStar">
+              <PropertyRef Name="ActivityItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OPMainModelStoreContainer">
+          <EntitySet Name="ActivityItem" EntityType="Self.ActivityItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityItemVoucher" EntityType="Self.ActivityItemVoucher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRolesDataRange" EntityType="Self.AspNetRolesDataRange" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRolesPageAuth" EntityType="Self.AspNetRolesPageAuth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsersDataRange" EntityType="Self.AspNetUsersDataRange" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsersPageAuth" EntityType="Self.AspNetUsersPageAuth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BannerItem" EntityType="Self.BannerItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompareString" EntityType="Self.CompareString" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExchangeCondition" EntityType="Self.ExchangeCondition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberFavoriteActivityItem" EntityType="Self.MemberFavoriteActivityItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OpenPointMemberStar" EntityType="Self.OpenPointMemberStar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PageContent" EntityType="Self.PageContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RewardActivity" EntityType="Self.RewardActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StopMachine" EntityType="Self.StopMachine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TempVoucherHeader" EntityType="Self.TempVoucherHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VoucherHeader" EntityType="Self.VoucherHeader" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Activity_Brand" Association="Self.FK_Activity_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Banner" EntitySet="Banner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_ActivityItem" Association="Self.FK_ActivityItem_ActivityItem">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="ActivityItem1" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_Bank" Association="Self.FK_ActivityItem_Bank">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_Brand" Association="Self.FK_ActivityItem_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_Category" Association="Self.FK_ActivityItem_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_Item" Association="Self.FK_ActivityItem_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_RewardActivity" Association="Self.FK_ActivityItem_RewardActivity">
+            <End Role="RewardActivity" EntitySet="RewardActivity" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItemVoucher_ActivityItem" Association="Self.FK_ActivityItemVoucher_ActivityItem">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="ActivityItemVoucher" EntitySet="ActivityItemVoucher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetRolesDataRange_AspNetRoles" Association="Self.FK_AspNetRolesDataRange_AspNetRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetRolesDataRange" EntitySet="AspNetRolesDataRange" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetRolesPageAuth_AspNetRoles" Association="Self.FK_AspNetRolesPageAuth_AspNetRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetRolesPageAuth" EntitySet="AspNetRolesPageAuth" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsersDataRange_AspNetUsers" Association="Self.FK_AspNetUsersDataRange_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsersDataRange" EntitySet="AspNetUsersDataRange" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsersPageAuth_AspNetUsers" Association="Self.FK_AspNetUsersPageAuth_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsersPageAuth" EntitySet="AspNetUsersPageAuth" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BannerItem_ActivityItem" Association="Self.FK_BannerItem_ActivityItem">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="BannerItem" EntitySet="BannerItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BannerItem_Banner" Association="Self.FK_BannerItem_Banner">
+            <End Role="Banner" EntitySet="Banner" />
+            <End Role="BannerItem" EntitySet="BannerItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Category" Association="Self.FK_Category_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category1" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExchangeCondition_ActivityProject" Association="Self.FK_ExchangeCondition_ActivityProject">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="ExchangeCondition" EntitySet="ExchangeCondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_Brand" Association="Self.FK_Item_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OpenPointMemberStar_ActivityItem" Association="Self.FK_OpenPointMemberStar_ActivityItem">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="OpenPointMemberStar" EntitySet="OpenPointMemberStar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OPMainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActivityItem">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ParentCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PICPointSystemCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExchangeEndDate" Type="DateTime" Precision="0" />
+          <Property Name="LotteryDrawingDate" Type="DateTime" Precision="0" />
+          <Property Name="ActivityItemType" Type="Int32" Nullable="false" />
+          <Property Name="ParentItemType" Type="Int32" Nullable="false" />
+          <Property Name="CardType" Type="Int32" Nullable="false" />
+          <Property Name="CollectType" Type="Int32" Nullable="false" />
+          <Property Name="TargetType" Type="Int32" Nullable="false" />
+          <Property Name="PointType" Type="Int32" Nullable="false" />
+          <Property Name="StockShowType" Type="Int32" Nullable="false" />
+          <Property Name="VerifyType" Type="Int32" Nullable="false" />
+          <Property Name="EachExchangeLimitQty" Type="Int32" Nullable="false" />
+          <Property Name="MemberExchangeLimitQty" Type="Int32" Nullable="false" />
+          <Property Name="PackQty" Type="Int32" Nullable="false" />
+          <Property Name="PackageDailyQty" Type="Int32" Nullable="false" />
+          <Property Name="StarQty" Type="Int32" />
+          <Property Name="SystemTopStort" Type="Int32" />
+          <Property Name="KeyInTopSort" Type="Int32" />
+          <Property Name="OutOfStockNotShow" Type="Boolean" Nullable="false" />
+          <Property Name="IsTimeLimited" Type="Boolean" />
+          <Property Name="IsEShop" Type="Boolean" Nullable="false" />
+          <Property Name="IsFirstGift" Type="Boolean" Nullable="false" />
+          <Property Name="IsDisabled" Type="Boolean" />
+          <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <Property Name="BankCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="CoBranderCheckCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SalePrice" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="LimitedExchangeTimesDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Specification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DiscountCondition1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiscountCondition2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="XLImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RewardID" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="ActivityItem1" Relationship="Self.FK_ActivityItem_ActivityItem" FromRole="ActivityItem" ToRole="ActivityItem1" />
+          <NavigationProperty Name="ActivityItem2" Relationship="Self.FK_ActivityItem_ActivityItem" FromRole="ActivityItem1" ToRole="ActivityItem" />
+          <NavigationProperty Name="Bank" Relationship="Self.FK_ActivityItem_Bank" FromRole="ActivityItem" ToRole="Bank" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK_ActivityItem_Brand" FromRole="ActivityItem" ToRole="Brand" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_ActivityItem_Category" FromRole="ActivityItem" ToRole="Category" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_ActivityItem_Item" FromRole="ActivityItem" ToRole="Item" />
+          <NavigationProperty Name="RewardActivity" Relationship="Self.FK_ActivityItem_RewardActivity" FromRole="ActivityItem" ToRole="RewardActivity" />
+          <NavigationProperty Name="ActivityItemVoucher" Relationship="Self.FK_ActivityItemVoucher_ActivityItem" FromRole="ActivityItem" ToRole="ActivityItemVoucher" />
+          <NavigationProperty Name="ExchangeCondition" Relationship="Self.FK_ExchangeCondition_ActivityProject" FromRole="ActivityItem" ToRole="ExchangeCondition" />
+          <NavigationProperty Name="OpenPointMemberStar" Relationship="Self.FK_OpenPointMemberStar_ActivityItem" FromRole="ActivityItem" ToRole="OpenPointMemberStar" />
+          <NavigationProperty Name="Banner" Relationship="Self.BannerItem" FromRole="ActivityItem" ToRole="Banner" />
+        </EntityType>
+        <EntityType Name="ActivityItemVoucher">
+          <Key>
+            <PropertyRef Name="ActivityItemCode" />
+            <PropertyRef Name="VoucherHeaderCode" />
+          </Key>
+          <Property Name="ActivityItemCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ExchangeType" Type="Int32" Nullable="false" />
+          <Property Name="VoucherHeaderCode" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IsAvailable" Type="Boolean" />
+          <Property Name="ItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReaminingQty" Type="Int32" />
+          <Property Name="VoucherStartDate" Type="DateTime" Precision="3" />
+          <Property Name="VoucherEndDate" Type="DateTime" Precision="3" />
+          <Property Name="ParentCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="VoucherType" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TotalQty" Type="Int32" />
+          <Property Name="PackQty" Type="Int32" Nullable="false" />
+          <Property Name="Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileIdentifyId" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="ActivityItem" Relationship="Self.FK_ActivityItemVoucher_ActivityItem" FromRole="ActivityItemVoucher" ToRole="ActivityItem" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PageAuth" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DataRange" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetRolesDataRange" Relationship="Self.FK_AspNetRolesDataRange_AspNetRoles" FromRole="AspNetRoles" ToRole="AspNetRolesDataRange" />
+          <NavigationProperty Name="AspNetRolesPageAuth" Relationship="Self.FK_AspNetRolesPageAuth_AspNetRoles" FromRole="AspNetRoles" ToRole="AspNetRolesPageAuth" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetRolesDataRange">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoleID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Level" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.FK_AspNetRolesDataRange_AspNetRoles" FromRole="AspNetRolesDataRange" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AspNetRolesPageAuth">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoleID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDisabled" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AuthType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.FK_AspNetRolesPageAuth_AspNetRoles" FromRole="AspNetRolesPageAuth" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDisabled" Type="Boolean" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetUsersDataRange" Relationship="Self.FK_AspNetUsersDataRange_AspNetUsers" FromRole="AspNetUsers" ToRole="AspNetUsersDataRange" />
+          <NavigationProperty Name="AspNetUsersPageAuth" Relationship="Self.FK_AspNetUsersPageAuth_AspNetUsers" FromRole="AspNetUsers" ToRole="AspNetUsersPageAuth" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AspNetUsersDataRange">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Level" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisabled" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUsersDataRange_AspNetUsers" FromRole="AspNetUsersDataRange" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsersPageAuth">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="PageID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PageID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDisabled" Type="Boolean" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUsersPageAuth_AspNetUsers" FromRole="AspNetUsersPageAuth" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CoBranderCheckCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OPExchangeState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisabled" Type="Boolean" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="XLImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CrystalImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ActivityItem" Relationship="Self.FK_ActivityItem_Bank" FromRole="Bank" ToRole="ActivityItem" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BannerType" Type="Int32" Nullable="false" />
+          <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ShowOnFrontPageBanner" Type="Boolean" Nullable="false" />
+          <Property Name="ShowOnExchangeBanner" Type="Boolean" Nullable="false" />
+          <Property Name="ShowOnBrandBanner" Type="Boolean" Nullable="false" />
+          <Property Name="ShowOnOverviewBanner" Type="Boolean" Nullable="false" />
+          <Property Name="URI" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisabled" Type="Boolean" Nullable="false" />
+          <Property Name="FrontPageSort" Type="Int32" />
+          <Property Name="ExchangeSort" Type="Int32" />
+          <Property Name="BrandSort" Type="Int32" />
+          <Property Name="OverviewSort" Type="Int32" />
+          <Property Name="StrategySort" Type="Int32" />
+          <Property Name="VerifyType" Type="Int32" Nullable="false" />
+          <Property Name="CarousellImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OverviewImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CollectCategoryID" Type="Int32" />
+          <Property Name="RewardCode" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK_Activity_Brand" FromRole="Banner" ToRole="Brand" />
+          <NavigationProperty Name="ActivityItem" Relationship="Self.BannerItem" FromRole="Banner" ToRole="ActivityItem" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="eShopName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="eShopURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisabled" Type="Boolean" Nullable="false" />
+          <Property Name="IsHaveStore" Type="Boolean" Nullable="false" />
+          <Property Name="OPExchangeState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityNotice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="XLImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ActivityItem" Relationship="Self.FK_ActivityItem_Brand" FromRole="Brand" ToRole="ActivityItem" />
+          <NavigationProperty Name="Banner" Relationship="Self.FK_Activity_Brand" FromRole="Brand" ToRole="Banner" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Item_Brand" FromRole="Brand" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsDisabled" Type="Boolean" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ActivityItem" Relationship="Self.FK_ActivityItem_Category" FromRole="Category" ToRole="ActivityItem" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK_Category_Category" FromRole="Category" ToRole="Category1" />
+          <NavigationProperty Name="Category2" Relationship="Self.FK_Category_Category" FromRole="Category1" ToRole="Category" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Item_Category" FromRole="Category" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="CompareString">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExchangeCondition">
+          <Key>
+            <PropertyRef Name="ActivityItemCode" />
+            <PropertyRef Name="ExchangeType" />
+          </Key>
+          <Property Name="ActivityItemCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ExchangeType" Type="Int32" Nullable="false" />
+          <Property Name="ExchangePoint" Type="Int32" />
+          <Property Name="ExchangeCash" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="ReaminingQty" Type="Int32" />
+          <Property Name="ActivityItemType" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExchangedQty" Type="Int32" />
+          <Property Name="PointType" Type="Int32" Nullable="false" />
+          <Property Name="ExchangeContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ActivityItem" Relationship="Self.FK_ExchangeCondition_ActivityProject" FromRole="ExchangeCondition" ToRole="ActivityItem" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <Property Name="ListPrice" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Keyword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Specification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="XLImageFileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ActivityItem" Relationship="Self.FK_ActivityItem_Item" FromRole="Item" ToRole="ActivityItem" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK_Item_Brand" FromRole="Item" ToRole="Brand" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Item_Category" FromRole="Item" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="MemberFavoriteActivityItem">
+          <Key>
+            <PropertyRef Name="MID" />
+            <PropertyRef Name="ActivityItemCode" />
+          </Key>
+          <Property Name="MID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ActivityItemCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsFavorite" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OpenPointMemberStar">
+          <Key>
+            <PropertyRef Name="ActivityItemCode" />
+            <PropertyRef Name="MemberMID" />
+          </Key>
+          <Property Name="ActivityItemCode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MemberMID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ActivityItem" Relationship="Self.FK_OpenPointMemberStar_ActivityItem" FromRole="OpenPointMemberStar" ToRole="ActivityItem" />
+        </EntityType>
+        <EntityType Name="PageContent">
+          <Key>
+            <PropertyRef Name="DisplayPage" />
+          </Key>
+          <Property Name="DisplayPage" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RewardActivity">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OpointName" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CollectStartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CollectEndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ExchangeEndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDisabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ActivityItem" Relationship="Self.FK_ActivityItem_RewardActivity" FromRole="RewardActivity" ToRole="ActivityItem" />
+        </EntityType>
+        <EntityType Name="StopMachine">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StopRangeType" Type="Int32" Nullable="false" />
+          <Property Name="ViewContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isExec" Type="Boolean" Nullable="false" />
+          <Property Name="LastUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUpdateUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempVoucherHeader">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="VoucherType" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReaminingQty" Type="Int32" />
+          <Property Name="ActivityID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="IsAvailable" Type="Boolean" />
+          <Property Name="VoucherStartDate" Type="DateTime" Precision="3" />
+          <Property Name="VoucherEndDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalQty" Type="Int32" />
+          <Property Name="ErrorLog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VoucherBarcodeType" Type="Int32" Nullable="false" />
+          <Property Name="PointType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VoucherHeader">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="VoucherType" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReaminingQty" Type="Int32" />
+          <Property Name="ActivityID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="IsAvailable" Type="Boolean" />
+          <Property Name="VoucherStartDate" Type="DateTime" Precision="3" />
+          <Property Name="VoucherEndDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalQty" Type="Int32" />
+          <Property Name="ErrorLog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VoucherBarcodeType" Type="Int32" Nullable="false" />
+          <Property Name="PointType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ActivityItem_ActivityItem">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="0..1" />
+          <End Role="ActivityItem1" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityItem">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItem1">
+              <PropertyRef Name="ParentCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_Bank">
+          <End Role="Bank" Type="Self.Bank" Multiplicity="0..1" />
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="BankCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="ItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItem_RewardActivity">
+          <End Role="RewardActivity" Type="Self.RewardActivity" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RewardActivity">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItem">
+              <PropertyRef Name="RewardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActivityItemVoucher_ActivityItem">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="1" />
+          <End Role="ActivityItemVoucher" Type="Self.ActivityItemVoucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityItem">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ActivityItemVoucher">
+              <PropertyRef Name="ActivityItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExchangeCondition_ActivityProject">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="1" />
+          <End Role="ExchangeCondition" Type="Self.ExchangeCondition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityItem">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="ExchangeCondition">
+              <PropertyRef Name="ActivityItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OpenPointMemberStar_ActivityItem">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="1" />
+          <End Role="OpenPointMemberStar" Type="Self.OpenPointMemberStar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityItem">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="OpenPointMemberStar">
+              <PropertyRef Name="ActivityItemCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetRolesDataRange_AspNetRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetRolesDataRange" Type="Self.AspNetRolesDataRange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetRolesDataRange">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetRolesPageAuth_AspNetRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetRolesPageAuth" Type="Self.AspNetRolesPageAuth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetRolesPageAuth">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsersDataRange_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUsersDataRange" Type="Self.AspNetUsersDataRange" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsersDataRange">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsersPageAuth_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUsersPageAuth" Type="Self.AspNetUsersPageAuth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsersPageAuth">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activity_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Banner" Type="Self.Banner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Banner">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Category1" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Item_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <Association Name="BannerItem">
+          <End Role="ActivityItem" Type="Self.ActivityItem" Multiplicity="*" />
+          <End Role="Banner" Type="Self.Banner" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="OPMainEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActivityItem" EntityType="Self.ActivityItem" />
+          <EntitySet Name="ActivityItemVoucher" EntityType="Self.ActivityItemVoucher" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetRolesDataRange" EntityType="Self.AspNetRolesDataRange" />
+          <EntitySet Name="AspNetRolesPageAuth" EntityType="Self.AspNetRolesPageAuth" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="AspNetUsersDataRange" EntityType="Self.AspNetUsersDataRange" />
+          <EntitySet Name="AspNetUsersPageAuth" EntityType="Self.AspNetUsersPageAuth" />
+          <EntitySet Name="Bank" EntityType="Self.Bank" />
+          <EntitySet Name="Banner" EntityType="Self.Banner" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="CompareString" EntityType="Self.CompareString" />
+          <EntitySet Name="ExchangeCondition" EntityType="Self.ExchangeCondition" />
+          <EntitySet Name="Item" EntityType="Self.Item" />
+          <EntitySet Name="MemberFavoriteActivityItem" EntityType="Self.MemberFavoriteActivityItem" />
+          <EntitySet Name="OpenPointMemberStar" EntityType="Self.OpenPointMemberStar" />
+          <EntitySet Name="PageContent" EntityType="Self.PageContent" />
+          <EntitySet Name="RewardActivity" EntityType="Self.RewardActivity" />
+          <EntitySet Name="StopMachine" EntityType="Self.StopMachine" />
+          <EntitySet Name="TempVoucherHeader" EntityType="Self.TempVoucherHeader" />
+          <EntitySet Name="VoucherHeader" EntityType="Self.VoucherHeader" />
+          <AssociationSet Name="FK_ActivityItem_ActivityItem" Association="Self.FK_ActivityItem_ActivityItem">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="ActivityItem1" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_Bank" Association="Self.FK_ActivityItem_Bank">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_Brand" Association="Self.FK_ActivityItem_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_Category" Association="Self.FK_ActivityItem_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_Item" Association="Self.FK_ActivityItem_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItem_RewardActivity" Association="Self.FK_ActivityItem_RewardActivity">
+            <End Role="RewardActivity" EntitySet="RewardActivity" />
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActivityItemVoucher_ActivityItem" Association="Self.FK_ActivityItemVoucher_ActivityItem">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="ActivityItemVoucher" EntitySet="ActivityItemVoucher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExchangeCondition_ActivityProject" Association="Self.FK_ExchangeCondition_ActivityProject">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="ExchangeCondition" EntitySet="ExchangeCondition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OpenPointMemberStar_ActivityItem" Association="Self.FK_OpenPointMemberStar_ActivityItem">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="OpenPointMemberStar" EntitySet="OpenPointMemberStar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetRolesDataRange_AspNetRoles" Association="Self.FK_AspNetRolesDataRange_AspNetRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetRolesDataRange" EntitySet="AspNetRolesDataRange" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetRolesPageAuth_AspNetRoles" Association="Self.FK_AspNetRolesPageAuth_AspNetRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetRolesPageAuth" EntitySet="AspNetRolesPageAuth" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsersDataRange_AspNetUsers" Association="Self.FK_AspNetUsersDataRange_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsersDataRange" EntitySet="AspNetUsersDataRange" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsersPageAuth_AspNetUsers" Association="Self.FK_AspNetUsersPageAuth_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsersPageAuth" EntitySet="AspNetUsersPageAuth" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activity_Brand" Association="Self.FK_Activity_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Banner" EntitySet="Banner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_Brand" Association="Self.FK_Item_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Category" Association="Self.FK_Category_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category1" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Item_Category" Association="Self.FK_Item_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="BannerItem" Association="Self.BannerItem">
+            <End Role="ActivityItem" EntitySet="ActivityItem" />
+            <End Role="Banner" EntitySet="Banner" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OPMainModelStoreContainer" CdmEntityContainer="OPMainEntities">
+          <EntitySetMapping Name="ActivityItem">
+            <EntityTypeMapping TypeName="OPMainModel.ActivityItem">
+              <MappingFragment StoreEntitySet="ActivityItem">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ParentCode" ColumnName="ParentCode" />
+                <ScalarProperty Name="PICPointSystemCode" ColumnName="PICPointSystemCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ExchangeEndDate" ColumnName="ExchangeEndDate" />
+                <ScalarProperty Name="LotteryDrawingDate" ColumnName="LotteryDrawingDate" />
+                <ScalarProperty Name="ActivityItemType" ColumnName="ActivityItemType" />
+                <ScalarProperty Name="ParentItemType" ColumnName="ParentItemType" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
+                <ScalarProperty Name="CollectType" ColumnName="CollectType" />
+                <ScalarProperty Name="TargetType" ColumnName="TargetType" />
+                <ScalarProperty Name="PointType" ColumnName="PointType" />
+                <ScalarProperty Name="StockShowType" ColumnName="StockShowType" />
+                <ScalarProperty Name="VerifyType" ColumnName="VerifyType" />
+                <ScalarProperty Name="EachExchangeLimitQty" ColumnName="EachExchangeLimitQty" />
+                <ScalarProperty Name="MemberExchangeLimitQty" ColumnName="MemberExchangeLimitQty" />
+                <ScalarProperty Name="PackQty" ColumnName="PackQty" />
+                <ScalarProperty Name="PackageDailyQty" ColumnName="PackageDailyQty" />
+                <ScalarProperty Name="StarQty" ColumnName="StarQty" />
+                <ScalarProperty Name="SystemTopStort" ColumnName="SystemTopStort" />
+                <ScalarProperty Name="KeyInTopSort" ColumnName="KeyInTopSort" />
+                <ScalarProperty Name="OutOfStockNotShow" ColumnName="OutOfStockNotShow" />
+                <ScalarProperty Name="IsTimeLimited" ColumnName="IsTimeLimited" />
+                <ScalarProperty Name="IsEShop" ColumnName="IsEShop" />
+                <ScalarProperty Name="IsFirstGift" ColumnName="IsFirstGift" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+                <ScalarProperty Name="CoBranderCheckCode" ColumnName="CoBranderCheckCode" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="LimitedExchangeTimesDescription" ColumnName="LimitedExchangeTimesDescription" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Notice" ColumnName="Notice" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="DiscountCondition1" ColumnName="DiscountCondition1" />
+                <ScalarProperty Name="DiscountCondition2" ColumnName="DiscountCondition2" />
+                <ScalarProperty Name="XLImageFileName" ColumnName="XLImageFileName" />
+                <ScalarProperty Name="SImageFileName" ColumnName="SImageFileName" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+                <ScalarProperty Name="CreateUpdateTime" ColumnName="CreateUpdateTime" />
+                <ScalarProperty Name="CreateUpdateUserName" ColumnName="CreateUpdateUserName" />
+                <ScalarProperty Name="RewardID" ColumnName="RewardID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityItemVoucher">
+            <EntityTypeMapping TypeName="OPMainModel.ActivityItemVoucher">
+              <MappingFragment StoreEntitySet="ActivityItemVoucher">
+                <ScalarProperty Name="ActivityItemCode" ColumnName="ActivityItemCode" />
+                <ScalarProperty Name="ExchangeType" ColumnName="ExchangeType" />
+                <ScalarProperty Name="VoucherHeaderCode" ColumnName="VoucherHeaderCode" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ReaminingQty" ColumnName="ReaminingQty" />
+                <ScalarProperty Name="VoucherStartDate" ColumnName="VoucherStartDate" />
+                <ScalarProperty Name="VoucherEndDate" ColumnName="VoucherEndDate" />
+                <ScalarProperty Name="ParentCode" ColumnName="ParentCode" />
+                <ScalarProperty Name="VoucherType" ColumnName="VoucherType" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="TotalQty" ColumnName="TotalQty" />
+                <ScalarProperty Name="PackQty" ColumnName="PackQty" />
+                <ScalarProperty Name="Notice" ColumnName="Notice" />
+                <ScalarProperty Name="FileIdentifyId" ColumnName="FileIdentifyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="OPMainModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PageAuth" ColumnName="PageAuth" />
+                <ScalarProperty Name="DataRange" ColumnName="DataRange" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRolesDataRange">
+            <EntityTypeMapping TypeName="OPMainModel.AspNetRolesDataRange">
+              <MappingFragment StoreEntitySet="AspNetRolesDataRange">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRolesPageAuth">
+            <EntityTypeMapping TypeName="OPMainModel.AspNetRolesPageAuth">
+              <MappingFragment StoreEntitySet="AspNetRolesPageAuth">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AuthType" ColumnName="AuthType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="OPMainModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="OPMainModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="OPMainModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUserName" ColumnName="CreateUserName" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateUserName" ColumnName="UpdateUserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsersDataRange">
+            <EntityTypeMapping TypeName="OPMainModel.AspNetUsersDataRange">
+              <MappingFragment StoreEntitySet="AspNetUsersDataRange">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsersPageAuth">
+            <EntityTypeMapping TypeName="OPMainModel.AspNetUsersPageAuth">
+              <MappingFragment StoreEntitySet="AspNetUsersPageAuth">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PageID" ColumnName="PageID" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="AuthType" ColumnName="AuthType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bank">
+            <EntityTypeMapping TypeName="OPMainModel.Bank">
+              <MappingFragment StoreEntitySet="Bank">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CoBranderCheckCode" ColumnName="CoBranderCheckCode" />
+                <ScalarProperty Name="OPExchangeState" ColumnName="OPExchangeState" />
+                <ScalarProperty Name="Notice" ColumnName="Notice" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="XLImageFileName" ColumnName="XLImageFileName" />
+                <ScalarProperty Name="SImageFileName" ColumnName="SImageFileName" />
+                <ScalarProperty Name="CrystalImageFileName" ColumnName="CrystalImageFileName" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banner">
+            <EntityTypeMapping TypeName="OPMainModel.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BannerType" ColumnName="BannerType" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ShowOnFrontPageBanner" ColumnName="ShowOnFrontPageBanner" />
+                <ScalarProperty Name="ShowOnExchangeBanner" ColumnName="ShowOnExchangeBanner" />
+                <ScalarProperty Name="ShowOnBrandBanner" ColumnName="ShowOnBrandBanner" />
+                <ScalarProperty Name="ShowOnOverviewBanner" ColumnName="ShowOnOverviewBanner" />
+                <ScalarProperty Name="URI" ColumnName="URI" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Notice" ColumnName="Notice" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="FrontPageSort" ColumnName="FrontPageSort" />
+                <ScalarProperty Name="ExchangeSort" ColumnName="ExchangeSort" />
+                <ScalarProperty Name="BrandSort" ColumnName="BrandSort" />
+                <ScalarProperty Name="OverviewSort" ColumnName="OverviewSort" />
+                <ScalarProperty Name="StrategySort" ColumnName="StrategySort" />
+                <ScalarProperty Name="VerifyType" ColumnName="VerifyType" />
+                <ScalarProperty Name="CarousellImageFileName" ColumnName="CarousellImageFileName" />
+                <ScalarProperty Name="OverviewImageFileName" ColumnName="OverviewImageFileName" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="CreateUpdateTime" ColumnName="CreateUpdateTime" />
+                <ScalarProperty Name="CreateUpdateUserName" ColumnName="CreateUpdateUserName" />
+                <ScalarProperty Name="CollectCategoryID" ColumnName="CollectCategoryID" />
+                <ScalarProperty Name="RewardCode" ColumnName="RewardCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brand">
+            <EntityTypeMapping TypeName="OPMainModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="eShopName" ColumnName="eShopName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="eShopURL" ColumnName="eShopURL" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="IsHaveStore" ColumnName="IsHaveStore" />
+                <ScalarProperty Name="OPExchangeState" ColumnName="OPExchangeState" />
+                <ScalarProperty Name="Notice" ColumnName="Notice" />
+                <ScalarProperty Name="ActivityNotice" ColumnName="ActivityNotice" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="XLImageFileName" ColumnName="XLImageFileName" />
+                <ScalarProperty Name="SImageFileName" ColumnName="SImageFileName" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="OPMainModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompareString">
+            <EntityTypeMapping TypeName="OPMainModel.CompareString">
+              <MappingFragment StoreEntitySet="CompareString">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExchangeCondition">
+            <EntityTypeMapping TypeName="OPMainModel.ExchangeCondition">
+              <MappingFragment StoreEntitySet="ExchangeCondition">
+                <ScalarProperty Name="ActivityItemCode" ColumnName="ActivityItemCode" />
+                <ScalarProperty Name="ExchangeType" ColumnName="ExchangeType" />
+                <ScalarProperty Name="ExchangePoint" ColumnName="ExchangePoint" />
+                <ScalarProperty Name="ExchangeCash" ColumnName="ExchangeCash" />
+                <ScalarProperty Name="ReaminingQty" ColumnName="ReaminingQty" />
+                <ScalarProperty Name="ActivityItemType" ColumnName="ActivityItemType" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="ExchangedQty" ColumnName="ExchangedQty" />
+                <ScalarProperty Name="PointType" ColumnName="PointType" />
+                <ScalarProperty Name="ExchangeContent" ColumnName="ExchangeContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item">
+            <EntityTypeMapping TypeName="OPMainModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Notice" ColumnName="Notice" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="SImageFileName" ColumnName="SImageFileName" />
+                <ScalarProperty Name="XLImageFileName" ColumnName="XLImageFileName" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+                <ScalarProperty Name="CreateUpdateTime" ColumnName="CreateUpdateTime" />
+                <ScalarProperty Name="CreateUpdateUserName" ColumnName="CreateUpdateUserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberFavoriteActivityItem">
+            <EntityTypeMapping TypeName="OPMainModel.MemberFavoriteActivityItem">
+              <MappingFragment StoreEntitySet="MemberFavoriteActivityItem">
+                <ScalarProperty Name="MID" ColumnName="MID" />
+                <ScalarProperty Name="ActivityItemCode" ColumnName="ActivityItemCode" />
+                <ScalarProperty Name="IsFavorite" ColumnName="IsFavorite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OpenPointMemberStar">
+            <EntityTypeMapping TypeName="OPMainModel.OpenPointMemberStar">
+              <MappingFragment StoreEntitySet="OpenPointMemberStar">
+                <ScalarProperty Name="ActivityItemCode" ColumnName="ActivityItemCode" />
+                <ScalarProperty Name="MemberMID" ColumnName="MemberMID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageContent">
+            <EntityTypeMapping TypeName="OPMainModel.PageContent">
+              <MappingFragment StoreEntitySet="PageContent">
+                <ScalarProperty Name="DisplayPage" ColumnName="DisplayPage" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RewardActivity">
+            <EntityTypeMapping TypeName="OPMainModel.RewardActivity">
+              <MappingFragment StoreEntitySet="RewardActivity">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="OpointName" ColumnName="OpointName" />
+                <ScalarProperty Name="CollectStartDate" ColumnName="CollectStartDate" />
+                <ScalarProperty Name="CollectEndDate" ColumnName="CollectEndDate" />
+                <ScalarProperty Name="ExchangeEndDate" ColumnName="ExchangeEndDate" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StopMachine">
+            <EntityTypeMapping TypeName="OPMainModel.StopMachine">
+              <MappingFragment StoreEntitySet="StopMachine">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StopRangeType" ColumnName="StopRangeType" />
+                <ScalarProperty Name="ViewContent" ColumnName="ViewContent" />
+                <ScalarProperty Name="isExec" ColumnName="isExec" />
+                <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+                <ScalarProperty Name="LastUpdateUserName" ColumnName="LastUpdateUserName" />
+                <ScalarProperty Name="CreateUpdateTime" ColumnName="CreateUpdateTime" />
+                <ScalarProperty Name="CreateUpdateUserName" ColumnName="CreateUpdateUserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempVoucherHeader">
+            <EntityTypeMapping TypeName="OPMainModel.TempVoucherHeader">
+              <MappingFragment StoreEntitySet="TempVoucherHeader">
+                <ScalarProperty Name="VoucherType" ColumnName="VoucherType" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReaminingQty" ColumnName="ReaminingQty" />
+                <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="VoucherStartDate" ColumnName="VoucherStartDate" />
+                <ScalarProperty Name="VoucherEndDate" ColumnName="VoucherEndDate" />
+                <ScalarProperty Name="TotalQty" ColumnName="TotalQty" />
+                <ScalarProperty Name="ErrorLog" ColumnName="ErrorLog" />
+                <ScalarProperty Name="VoucherBarcodeType" ColumnName="VoucherBarcodeType" />
+                <ScalarProperty Name="PointType" ColumnName="PointType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VoucherHeader">
+            <EntityTypeMapping TypeName="OPMainModel.VoucherHeader">
+              <MappingFragment StoreEntitySet="VoucherHeader">
+                <ScalarProperty Name="VoucherType" ColumnName="VoucherType" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReaminingQty" ColumnName="ReaminingQty" />
+                <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="VoucherStartDate" ColumnName="VoucherStartDate" />
+                <ScalarProperty Name="VoucherEndDate" ColumnName="VoucherEndDate" />
+                <ScalarProperty Name="TotalQty" ColumnName="TotalQty" />
+                <ScalarProperty Name="ErrorLog" ColumnName="ErrorLog" />
+                <ScalarProperty Name="VoucherBarcodeType" ColumnName="VoucherBarcodeType" />
+                <ScalarProperty Name="PointType" ColumnName="PointType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="OPMainModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="BannerItem" TypeName="OPMainModel.BannerItem" StoreEntitySet="BannerItem">
+            <EndProperty Name="ActivityItem">
+              <ScalarProperty Name="Code" ColumnName="ActivityItemCode" />
+            </EndProperty>
+            <EndProperty Name="Banner">
+              <ScalarProperty Name="Code" ColumnName="BannerCode" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

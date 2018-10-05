@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Ptc.Data.Condition2.dll</id>
+    <version>1.0.0</version> 
+    <authors>motx2152000</authors>
+    <owners>motx2152000</owners>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package description</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Tag1 Tag2</tags>
+	 <dependencies>
+      <dependency id="SampleDependency" version="1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\agent\_work\1\a\drop\Ptc.Data.Condition2\bin\Release\*.dll" target="lib" />
+    <file src="D:\agent\_work\1\a\drop\Ptc.Data.Condition2.Common\bin\Release\*.dll" target="lib" />
+	<file src="D:\agent\_work\1\a\drop\Ptc.Data.Condition2.Interface\bin\Release\*.dll" target="lib" />
+	<file src="D:\agent\_work\1\a\drop\Ptc.Data.Condition2.Mssql\bin\Release\*.dll" target="lib" />
+    <file src="D:\agent\_work\1\a\drop\Ptc.Data.Condition2.Service\bin\Release\*.dll" target="lib" />
+   
+	</files>
+</package>

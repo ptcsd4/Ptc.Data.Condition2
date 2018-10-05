@@ -1,0 +1,2083 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HLHApp_DemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="PreviewImagePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ContentImagePath" Type="nvarchar(max)" />
+          <Property Name="TopMost" Type="int" />
+          <Property Name="PostStartDate" Type="datetime" Nullable="false" />
+          <Property Name="PostEndDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="NoticeType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NoticeTarget" Type="nvarchar(max)" />
+          <Property Name="CustomizeNoticeUser" Type="nvarchar(max)" />
+          <Property Name="removeUserID" Type="nvarchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="IsPerformance" Type="bit" Nullable="false" />
+          <Property Name="hasPushed" Type="bit" Nullable="false" />
+          <Property Name="IsPubilc" Type="bit" Nullable="false" />
+          <Property Name="DescriptionOfAddress" Type="nvarchar" MaxLength="3000" />
+          <Property Name="DescriptionOfAddressIsURL" Type="bit" Nullable="false" />
+          <Property Name="AnnouncementType" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnnouncementBranchCounter">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+            <PropertyRef Name="BranchCounterID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+          <Property Name="BranchCounterID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Arguments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="varchar" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="PageAuth" Type="varchar(max)" />
+          <Property Name="DataRange" Type="varchar(max)" />
+          <Property Name="BusinessType" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="PageAuth" Type="varchar(max)" />
+          <Property Name="DataRange" Type="varchar(max)" />
+          <Property Name="BusinessType" Type="varchar(max)" />
+          <Property Name="EMPID" Type="nvarchar" MaxLength="50" />
+          <Property Name="UnitID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CorpUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CorpUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrandAuth" Type="varchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BranchCounter">
+          <Key>
+            <PropertyRef Name="BranchCounterID" />
+          </Key>
+          <Property Name="BranchCounterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchCounterName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelephoneArea" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="AddressCityID" Type="int" Nullable="false" />
+          <Property Name="AddressArea" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TradingTime1" Type="nvarchar" MaxLength="50" />
+          <Property Name="TradingTime2" Type="nvarchar" MaxLength="50" />
+          <Property Name="TradingTime3" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransporInfo" Type="nvarchar" MaxLength="800" />
+          <Property Name="ImgUrl" Type="varchar(max)" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CityList">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Area" Type="nvarchar" MaxLength="5" />
+          <Property Name="zone" Type="varchar(max)" />
+          <Property Name="zip" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Coupon">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="CouponCount" Type="int" />
+          <Property Name="CurrentCount" Type="int" Nullable="false" />
+          <Property Name="DiscountAmount" Type="int" />
+          <Property Name="DiscountPercentage" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="ExchangeStartDate" Type="datetime" Nullable="false" />
+          <Property Name="ExchangeEndDate" Type="datetime" Nullable="false" />
+          <Property Name="LimitAmountOfPurchase" Type="int" />
+          <Property Name="LimitOther" Type="varchar" MaxLength="500" />
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+          <Property Name="ActiveStartDate" Type="datetime" />
+          <Property Name="ActiveEndDate" Type="datetime" />
+          <Property Name="DescriptionOfUse" Type="nvarchar" MaxLength="3000" />
+          <Property Name="DescriptionOfOther" Type="nvarchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="CouponBranchCounter">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+            <PropertyRef Name="BranchCounterID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+          <Property Name="BranchCounterID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CouponSN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SerialCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsValid" Type="bit" Nullable="false" />
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+          <Property Name="Bonus" Type="nvarchar(max)" />
+          <Property Name="BrandID" Type="nvarchar" MaxLength="300" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+          <Property Name="SignupEndDate" Type="datetime" />
+          <Property Name="SignupStartDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CourseLocations">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+            <PropertyRef Name="SessionID" />
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+          <Property Name="SessionID" Type="int" Nullable="false" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="LimitCompanionCount" Type="int" Nullable="false" />
+          <Property Name="LimitPersonCount" Type="int" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="BranchCounterID" Type="int" />
+          <Property Name="BranchCounterName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BranchCounterCityID" Type="int" Nullable="false" />
+          <Property Name="BranchCounterCityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchCounterAddress" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="NowActiveCount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseSession">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+          <Property Name="SessionID" Type="int" Nullable="false" />
+          <Property Name="SessionStartDate" Type="datetime" />
+          <Property Name="SessionEndDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Lottery">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+          <Property Name="ActiveStartDate" Type="datetime" />
+          <Property Name="ActiveEndDate" Type="datetime" />
+          <Property Name="LimitPurchase" Type="int" />
+          <Property Name="Precautions" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LotteryBranchCounter">
+          <Key>
+            <PropertyRef Name="BranchCounterID" />
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="BranchCounterID" Type="int" Nullable="false" />
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LotteryShopChannel">
+          <Key>
+            <PropertyRef Name="ShopChannelID" />
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="ShopChannelID" Type="int" Nullable="false" />
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MachineType">
+          <Key>
+            <PropertyRef Name="MachineTypeID" />
+            <PropertyRef Name="BrandID" />
+          </Key>
+          <Property Name="MachineTypeID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BrandID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineSerialCodeImagePath" Type="varchar(max)" />
+          <Property Name="ProductImagePath" Type="varchar(max)" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MachineTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MachineSerialCodeDescription" Type="nvarchar(max)" />
+          <Property Name="ShopSuppliesURL" Type="varchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SendBackReason">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SendBackReasonName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShopChannel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShopChannelName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="Sorting" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SuppliesNoticeMachineType">
+          <Key>
+            <PropertyRef Name="MachineTypeID" />
+            <PropertyRef Name="BrandID" />
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="MachineTypeID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BrandID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="AccountName" />
+          </Key>
+          <Property Name="AccountName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneVaildCode" Type="varchar" MaxLength="10" />
+          <Property Name="PhoneVaildCodeDate" Type="datetime" />
+          <Property Name="DailyPhoneVaildCount" Type="int" Nullable="false" />
+          <Property Name="ResetPasswordCode" Type="varchar" MaxLength="50" />
+          <Property Name="ResetPasswordDate" Type="datetime" />
+          <Property Name="DailyResetPasswordCodeCount" Type="int" Nullable="false" />
+          <Property Name="RegistrationID" Type="varchar" MaxLength="250" />
+          <Property Name="IsVaildPhone" Type="bit" />
+          <Property Name="UserInfoVersion" Type="varchar" MaxLength="50" />
+          <Property Name="ResetPasswordCount" Type="int" />
+          <Property Name="PhoneVaildCount" Type="int" />
+          <Property Name="MobileDevice" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserCoupon">
+          <Key>
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="GetDateTime" Type="datetime" />
+          <Property Name="Invalid" Type="bit" Nullable="false" />
+          <Property Name="UseDateTime" Type="datetime" />
+          <Property Name="AccountName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+          <Property Name="CouponSNID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="UserCourseLocation">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+            <PropertyRef Name="SessionID" />
+            <PropertyRef Name="LocationID" />
+            <PropertyRef Name="AccountName" />
+          </Key>
+          <Property Name="AnnouncementID" Type="int" Nullable="false" />
+          <Property Name="SessionID" Type="int" Nullable="false" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="AccountName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GetDateTime" Type="datetime" Nullable="false" />
+          <Property Name="LimitPersonCount" Type="int" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="CourseSNID" Type="bigint" Nullable="false" />
+          <Property Name="RegisteInfoHistory" Type="nvarchar(max)" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserProductWarranty">
+          <Key>
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="UserWarrantyID" />
+          </Key>
+          <Property Name="AccountName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserWarrantyID" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="BrandID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineTypeID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MachineSerialCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="HasNoReceipt" Type="bit" Nullable="false" />
+          <Property Name="NoReceiptReason" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReceiptImagePath" Type="nvarchar(max)" />
+          <Property Name="RegisteInfoHistory" Type="nvarchar(max)" />
+          <Property Name="SendBackReasonID" Type="int" />
+          <Property Name="SendBackReason" Type="nvarchar" MaxLength="50" />
+          <Property Name="SendBackTimes" Type="int" />
+          <Property Name="ShopChannelID" Type="int" />
+          <Property Name="ShopChannel" Type="nvarchar" MaxLength="50" />
+          <Property Name="WarrantyStartDate" Type="datetime" />
+          <Property Name="WarrantyEndDate" Type="datetime" />
+          <Property Name="WarrantyMonth" Type="int" />
+          <Property Name="ProductWarrantyType" Type="int" Nullable="false" />
+          <Property Name="ProductCheckType" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="QRCodeContent" Type="varchar(max)" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="SaleAmount" Type="numeric" Precision="9" Scale="2" />
+          <Property Name="CheckUser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AnnouncementBranchCounter_Announcement">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AnnouncementBranchCounter" Type="Self.AnnouncementBranchCounter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Announcement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AnnouncementBranchCounter">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnnouncementBranchCounter_BranchCounter">
+          <End Role="BranchCounter" Type="Self.BranchCounter" Multiplicity="1" />
+          <End Role="AnnouncementBranchCounter" Type="Self.AnnouncementBranchCounter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchCounter">
+              <PropertyRef Name="BranchCounterID" />
+            </Principal>
+            <Dependent Role="AnnouncementBranchCounter">
+              <PropertyRef Name="BranchCounterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BranchCounter_CityList">
+          <End Role="CityList" Type="Self.CityList" Multiplicity="1" />
+          <End Role="BranchCounter" Type="Self.BranchCounter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityList">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="BranchCounter">
+              <PropertyRef Name="AddressCityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coupon_Announcement1">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Announcement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Coupon">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CouponBranchCounter_BranchCounter">
+          <End Role="BranchCounter" Type="Self.BranchCounter" Multiplicity="1" />
+          <End Role="CouponBranchCounter" Type="Self.CouponBranchCounter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchCounter">
+              <PropertyRef Name="BranchCounterID" />
+            </Principal>
+            <Dependent Role="CouponBranchCounter">
+              <PropertyRef Name="BranchCounterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CouponBranchCounter_Coupon">
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CouponBranchCounter" Type="Self.CouponBranchCounter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupon">
+              <PropertyRef Name="AnnouncementID" />
+            </Principal>
+            <Dependent Role="CouponBranchCounter">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CouponSN_Coupon">
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CouponSN" Type="Self.CouponSN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupon">
+              <PropertyRef Name="AnnouncementID" />
+            </Principal>
+            <Dependent Role="CouponSN">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Announcement">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Announcement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseLocations_CourseSession">
+          <End Role="CourseSession" Type="Self.CourseSession" Multiplicity="1" />
+          <End Role="CourseLocations" Type="Self.CourseLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseSession">
+              <PropertyRef Name="AnnouncementID" />
+              <PropertyRef Name="SessionID" />
+            </Principal>
+            <Dependent Role="CourseLocations">
+              <PropertyRef Name="AnnouncementID" />
+              <PropertyRef Name="SessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseSession_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CourseSession" Type="Self.CourseSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="AnnouncementID" />
+            </Principal>
+            <Dependent Role="CourseSession">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lottery_Announcement">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="1" />
+          <End Role="Lottery" Type="Self.Lottery" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Announcement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Lottery">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LotteryBranchCounter_BranchCounter">
+          <End Role="BranchCounter" Type="Self.BranchCounter" Multiplicity="1" />
+          <End Role="LotteryBranchCounter" Type="Self.LotteryBranchCounter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchCounter">
+              <PropertyRef Name="BranchCounterID" />
+            </Principal>
+            <Dependent Role="LotteryBranchCounter">
+              <PropertyRef Name="BranchCounterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LotteryBranchCounter_Lottery">
+          <End Role="Lottery" Type="Self.Lottery" Multiplicity="1" />
+          <End Role="LotteryBranchCounter" Type="Self.LotteryBranchCounter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lottery">
+              <PropertyRef Name="AnnouncementID" />
+            </Principal>
+            <Dependent Role="LotteryBranchCounter">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LotteryShopChannel_Lottery">
+          <End Role="Lottery" Type="Self.Lottery" Multiplicity="1" />
+          <End Role="LotteryShopChannel" Type="Self.LotteryShopChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lottery">
+              <PropertyRef Name="AnnouncementID" />
+            </Principal>
+            <Dependent Role="LotteryShopChannel">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LotteryShopChannel_ShopChannel">
+          <End Role="ShopChannel" Type="Self.ShopChannel" Multiplicity="1" />
+          <End Role="LotteryShopChannel" Type="Self.LotteryShopChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopChannel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LotteryShopChannel">
+              <PropertyRef Name="ShopChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuppliesNoticeMachineType_Announcement">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="1" />
+          <End Role="SuppliesNoticeMachineType" Type="Self.SuppliesNoticeMachineType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Announcement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SuppliesNoticeMachineType">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuppliesNoticeMachineType_MachineType">
+          <End Role="MachineType" Type="Self.MachineType" Multiplicity="1" />
+          <End Role="SuppliesNoticeMachineType" Type="Self.SuppliesNoticeMachineType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MachineType">
+              <PropertyRef Name="MachineTypeID" />
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="SuppliesNoticeMachineType">
+              <PropertyRef Name="MachineTypeID" />
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCoupon_Coupon">
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="1" />
+          <End Role="UserCoupon" Type="Self.UserCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupon">
+              <PropertyRef Name="AnnouncementID" />
+            </Principal>
+            <Dependent Role="UserCoupon">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCoupon_CouponSN1">
+          <End Role="CouponSN" Type="Self.CouponSN" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserCoupon" Type="Self.UserCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CouponSN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserCoupon">
+              <PropertyRef Name="CouponSNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCoupon_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserCoupon" Type="Self.UserCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="AccountName" />
+            </Principal>
+            <Dependent Role="UserCoupon">
+              <PropertyRef Name="AccountName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCourseLocation_CourseLocations">
+          <End Role="CourseLocations" Type="Self.CourseLocations" Multiplicity="1" />
+          <End Role="UserCourseLocation" Type="Self.UserCourseLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseLocations">
+              <PropertyRef Name="AnnouncementID" />
+              <PropertyRef Name="SessionID" />
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="UserCourseLocation">
+              <PropertyRef Name="AnnouncementID" />
+              <PropertyRef Name="SessionID" />
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCourseLocation_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserCourseLocation" Type="Self.UserCourseLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="AccountName" />
+            </Principal>
+            <Dependent Role="UserCourseLocation">
+              <PropertyRef Name="AccountName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProductWarranty_MachineType">
+          <End Role="MachineType" Type="Self.MachineType" Multiplicity="1" />
+          <End Role="UserProductWarranty" Type="Self.UserProductWarranty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MachineType">
+              <PropertyRef Name="MachineTypeID" />
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="UserProductWarranty">
+              <PropertyRef Name="MachineTypeID" />
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProductWarranty_SendBackReason">
+          <End Role="SendBackReason" Type="Self.SendBackReason" Multiplicity="0..1" />
+          <End Role="UserProductWarranty" Type="Self.UserProductWarranty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SendBackReason">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProductWarranty">
+              <PropertyRef Name="SendBackReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProductWarranty_ShopChannel">
+          <End Role="ShopChannel" Type="Self.ShopChannel" Multiplicity="0..1" />
+          <End Role="UserProductWarranty" Type="Self.UserProductWarranty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopChannel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProductWarranty">
+              <PropertyRef Name="ShopChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProductWarranty_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserProductWarranty" Type="Self.UserProductWarranty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="AccountName" />
+            </Principal>
+            <Dependent Role="UserProductWarranty">
+              <PropertyRef Name="AccountName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HLHApp_DemoModelStoreContainer">
+          <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnnouncementBranchCounter" EntityType="Self.AnnouncementBranchCounter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Arguments" EntityType="Self.Arguments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BranchCounter" EntityType="Self.BranchCounter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CityList" EntityType="Self.CityList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coupon" EntityType="Self.Coupon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CouponBranchCounter" EntityType="Self.CouponBranchCounter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CouponSN" EntityType="Self.CouponSN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseLocations" EntityType="Self.CourseLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseSession" EntityType="Self.CourseSession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lottery" EntityType="Self.Lottery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LotteryBranchCounter" EntityType="Self.LotteryBranchCounter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LotteryShopChannel" EntityType="Self.LotteryShopChannel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MachineType" EntityType="Self.MachineType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SendBackReason" EntityType="Self.SendBackReason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShopChannel" EntityType="Self.ShopChannel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuppliesNoticeMachineType" EntityType="Self.SuppliesNoticeMachineType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCoupon" EntityType="Self.UserCoupon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCourseLocation" EntityType="Self.UserCourseLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProductWarranty" EntityType="Self.UserProductWarranty" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AnnouncementBranchCounter_Announcement" Association="Self.FK_AnnouncementBranchCounter_Announcement">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="AnnouncementBranchCounter" EntitySet="AnnouncementBranchCounter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnnouncementBranchCounter_BranchCounter" Association="Self.FK_AnnouncementBranchCounter_BranchCounter">
+            <End Role="BranchCounter" EntitySet="BranchCounter" />
+            <End Role="AnnouncementBranchCounter" EntitySet="AnnouncementBranchCounter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchCounter_CityList" Association="Self.FK_BranchCounter_CityList">
+            <End Role="CityList" EntitySet="CityList" />
+            <End Role="BranchCounter" EntitySet="BranchCounter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coupon_Announcement1" Association="Self.FK_Coupon_Announcement1">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="Coupon" EntitySet="Coupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CouponBranchCounter_BranchCounter" Association="Self.FK_CouponBranchCounter_BranchCounter">
+            <End Role="BranchCounter" EntitySet="BranchCounter" />
+            <End Role="CouponBranchCounter" EntitySet="CouponBranchCounter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CouponBranchCounter_Coupon" Association="Self.FK_CouponBranchCounter_Coupon">
+            <End Role="Coupon" EntitySet="Coupon" />
+            <End Role="CouponBranchCounter" EntitySet="CouponBranchCounter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CouponSN_Coupon" Association="Self.FK_CouponSN_Coupon">
+            <End Role="Coupon" EntitySet="Coupon" />
+            <End Role="CouponSN" EntitySet="CouponSN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Announcement" Association="Self.FK_Course_Announcement">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseLocations_CourseSession" Association="Self.FK_CourseLocations_CourseSession">
+            <End Role="CourseSession" EntitySet="CourseSession" />
+            <End Role="CourseLocations" EntitySet="CourseLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseSession_Course" Association="Self.FK_CourseSession_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="CourseSession" EntitySet="CourseSession" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lottery_Announcement" Association="Self.FK_Lottery_Announcement">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="Lottery" EntitySet="Lottery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LotteryBranchCounter_BranchCounter" Association="Self.FK_LotteryBranchCounter_BranchCounter">
+            <End Role="BranchCounter" EntitySet="BranchCounter" />
+            <End Role="LotteryBranchCounter" EntitySet="LotteryBranchCounter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LotteryBranchCounter_Lottery" Association="Self.FK_LotteryBranchCounter_Lottery">
+            <End Role="Lottery" EntitySet="Lottery" />
+            <End Role="LotteryBranchCounter" EntitySet="LotteryBranchCounter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LotteryShopChannel_Lottery" Association="Self.FK_LotteryShopChannel_Lottery">
+            <End Role="Lottery" EntitySet="Lottery" />
+            <End Role="LotteryShopChannel" EntitySet="LotteryShopChannel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LotteryShopChannel_ShopChannel" Association="Self.FK_LotteryShopChannel_ShopChannel">
+            <End Role="ShopChannel" EntitySet="ShopChannel" />
+            <End Role="LotteryShopChannel" EntitySet="LotteryShopChannel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuppliesNoticeMachineType_Announcement" Association="Self.FK_SuppliesNoticeMachineType_Announcement">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="SuppliesNoticeMachineType" EntitySet="SuppliesNoticeMachineType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuppliesNoticeMachineType_MachineType" Association="Self.FK_SuppliesNoticeMachineType_MachineType">
+            <End Role="MachineType" EntitySet="MachineType" />
+            <End Role="SuppliesNoticeMachineType" EntitySet="SuppliesNoticeMachineType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCoupon_Coupon" Association="Self.FK_UserCoupon_Coupon">
+            <End Role="Coupon" EntitySet="Coupon" />
+            <End Role="UserCoupon" EntitySet="UserCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCoupon_CouponSN1" Association="Self.FK_UserCoupon_CouponSN1">
+            <End Role="CouponSN" EntitySet="CouponSN" />
+            <End Role="UserCoupon" EntitySet="UserCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCoupon_User" Association="Self.FK_UserCoupon_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserCoupon" EntitySet="UserCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCourseLocation_CourseLocations" Association="Self.FK_UserCourseLocation_CourseLocations">
+            <End Role="CourseLocations" EntitySet="CourseLocations" />
+            <End Role="UserCourseLocation" EntitySet="UserCourseLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCourseLocation_User" Association="Self.FK_UserCourseLocation_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserCourseLocation" EntitySet="UserCourseLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProductWarranty_MachineType" Association="Self.FK_UserProductWarranty_MachineType">
+            <End Role="MachineType" EntitySet="MachineType" />
+            <End Role="UserProductWarranty" EntitySet="UserProductWarranty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProductWarranty_SendBackReason" Association="Self.FK_UserProductWarranty_SendBackReason">
+            <End Role="SendBackReason" EntitySet="SendBackReason" />
+            <End Role="UserProductWarranty" EntitySet="UserProductWarranty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProductWarranty_ShopChannel" Association="Self.FK_UserProductWarranty_ShopChannel">
+            <End Role="ShopChannel" EntitySet="ShopChannel" />
+            <End Role="UserProductWarranty" EntitySet="UserProductWarranty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProductWarranty_User" Association="Self.FK_UserProductWarranty_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserProductWarranty" EntitySet="UserProductWarranty" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HLHApp_DemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PreviewImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContentImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TopMost" Type="Int32" />
+          <Property Name="PostStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PostEndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NoticeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NoticeTarget" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomizeNoticeUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="removeUserID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsPerformance" Type="Boolean" Nullable="false" />
+          <Property Name="hasPushed" Type="Boolean" Nullable="false" />
+          <Property Name="IsPubilc" Type="Boolean" Nullable="false" />
+          <Property Name="DescriptionOfAddress" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionOfAddressIsURL" Type="Boolean" Nullable="false" />
+          <Property Name="AnnouncementType" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Coupon" Relationship="Self.FK_Coupon_Announcement1" FromRole="Announcement" ToRole="Coupon" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Course_Announcement" FromRole="Announcement" ToRole="Course" />
+          <NavigationProperty Name="Lottery" Relationship="Self.FK_Lottery_Announcement" FromRole="Announcement" ToRole="Lottery" />
+          <NavigationProperty Name="BranchCounter" Relationship="Self.AnnouncementBranchCounter" FromRole="Announcement" ToRole="BranchCounter" />
+          <NavigationProperty Name="MachineType" Relationship="Self.SuppliesNoticeMachineType" FromRole="Announcement" ToRole="MachineType" />
+        </EntityType>
+        <EntityType Name="Arguments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PageAuth" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DataRange" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PageAuth" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DataRange" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EMPID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UnitID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CorpUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CorpUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandAuth" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="BranchCounter">
+          <Key>
+            <PropertyRef Name="BranchCounterID" />
+          </Key>
+          <Property Name="BranchCounterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchCounterName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelephoneArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="AddressCityID" Type="Int32" Nullable="false" />
+          <Property Name="AddressArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TradingTime1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TradingTime2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TradingTime3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransporInfo" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="Double" Nullable="false" />
+          <Property Name="Latitude" Type="Double" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CityList" Relationship="Self.FK_BranchCounter_CityList" FromRole="BranchCounter" ToRole="CityList" />
+          <NavigationProperty Name="Announcement" Relationship="Self.AnnouncementBranchCounter" FromRole="BranchCounter" ToRole="Announcement" />
+          <NavigationProperty Name="Coupon" Relationship="Self.CouponBranchCounter" FromRole="BranchCounter" ToRole="Coupon" />
+          <NavigationProperty Name="Lottery" Relationship="Self.LotteryBranchCounter" FromRole="BranchCounter" ToRole="Lottery" />
+        </EntityType>
+        <EntityType Name="CityList">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="zone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BranchCounter" Relationship="Self.FK_BranchCounter_CityList" FromRole="CityList" ToRole="BranchCounter" />
+        </EntityType>
+        <EntityType Name="Coupon">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="CouponCount" Type="Int32" />
+          <Property Name="CurrentCount" Type="Int32" Nullable="false" />
+          <Property Name="DiscountAmount" Type="Int32" />
+          <Property Name="DiscountPercentage" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ExchangeStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExchangeEndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LimitAmountOfPurchase" Type="Int32" />
+          <Property Name="LimitOther" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AnnouncementID" Type="Int32" Nullable="false" />
+          <Property Name="ActiveStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ActiveEndDate" Type="DateTime" Precision="3" />
+          <Property Name="DescriptionOfUse" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionOfOther" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Announcement" Relationship="Self.FK_Coupon_Announcement1" FromRole="Coupon" ToRole="Announcement" />
+          <NavigationProperty Name="CouponSN" Relationship="Self.FK_CouponSN_Coupon" FromRole="Coupon" ToRole="CouponSN" />
+          <NavigationProperty Name="UserCoupon" Relationship="Self.FK_UserCoupon_Coupon" FromRole="Coupon" ToRole="UserCoupon" />
+          <NavigationProperty Name="BranchCounter" Relationship="Self.CouponBranchCounter" FromRole="Coupon" ToRole="BranchCounter" />
+        </EntityType>
+        <EntityType Name="CouponSN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerialCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsValid" Type="Boolean" Nullable="false" />
+          <Property Name="AnnouncementID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Coupon" Relationship="Self.FK_CouponSN_Coupon" FromRole="CouponSN" ToRole="Coupon" />
+          <NavigationProperty Name="UserCoupon" Relationship="Self.FK_UserCoupon_CouponSN1" FromRole="CouponSN" ToRole="UserCoupon" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="Int32" Nullable="false" />
+          <Property Name="Bonus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BrandID" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SignupEndDate" Type="DateTime" Precision="3" />
+          <Property Name="SignupStartDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Announcement" Relationship="Self.FK_Course_Announcement" FromRole="Course" ToRole="Announcement" />
+          <NavigationProperty Name="CourseSession" Relationship="Self.FK_CourseSession_Course" FromRole="Course" ToRole="CourseSession" />
+        </EntityType>
+        <EntityType Name="CourseLocations">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+            <PropertyRef Name="SessionID" />
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="Int32" Nullable="false" />
+          <Property Name="SessionID" Type="Int32" Nullable="false" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <Property Name="LimitCompanionCount" Type="Int32" Nullable="false" />
+          <Property Name="LimitPersonCount" Type="Int32" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="BranchCounterID" Type="Int32" />
+          <Property Name="BranchCounterName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BranchCounterCityID" Type="Int32" Nullable="false" />
+          <Property Name="BranchCounterCityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCounterAddress" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NowActiveCount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CourseSession" Relationship="Self.FK_CourseLocations_CourseSession" FromRole="CourseLocations" ToRole="CourseSession" />
+          <NavigationProperty Name="UserCourseLocation" Relationship="Self.FK_UserCourseLocation_CourseLocations" FromRole="CourseLocations" ToRole="UserCourseLocation" />
+        </EntityType>
+        <EntityType Name="CourseSession">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="Int32" Nullable="false" />
+          <Property Name="SessionID" Type="Int32" Nullable="false" />
+          <Property Name="SessionStartDate" Type="DateTime" Precision="3" />
+          <Property Name="SessionEndDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_CourseSession_Course" FromRole="CourseSession" ToRole="Course" />
+          <NavigationProperty Name="CourseLocations" Relationship="Self.FK_CourseLocations_CourseSession" FromRole="CourseSession" ToRole="CourseLocations" />
+        </EntityType>
+        <EntityType Name="Lottery">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="AnnouncementID" Type="Int32" Nullable="false" />
+          <Property Name="ActiveStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ActiveEndDate" Type="DateTime" Precision="3" />
+          <Property Name="LimitPurchase" Type="Int32" />
+          <Property Name="Precautions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Announcement" Relationship="Self.FK_Lottery_Announcement" FromRole="Lottery" ToRole="Announcement" />
+          <NavigationProperty Name="BranchCounter" Relationship="Self.LotteryBranchCounter" FromRole="Lottery" ToRole="BranchCounter" />
+          <NavigationProperty Name="ShopChannel" Relationship="Self.LotteryShopChannel" FromRole="Lottery" ToRole="ShopChannel" />
+        </EntityType>
+        <EntityType Name="MachineType">
+          <Key>
+            <PropertyRef Name="MachineTypeID" />
+            <PropertyRef Name="BrandID" />
+          </Key>
+          <Property Name="MachineTypeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BrandID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MachineSerialCodeImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProductImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MachineTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MachineSerialCodeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShopSuppliesURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserProductWarranty" Relationship="Self.FK_UserProductWarranty_MachineType" FromRole="MachineType" ToRole="UserProductWarranty" />
+          <NavigationProperty Name="Announcement" Relationship="Self.SuppliesNoticeMachineType" FromRole="MachineType" ToRole="Announcement" />
+        </EntityType>
+        <EntityType Name="SendBackReason">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SendBackReasonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserProductWarranty" Relationship="Self.FK_UserProductWarranty_SendBackReason" FromRole="SendBackReason" ToRole="UserProductWarranty" />
+        </EntityType>
+        <EntityType Name="ShopChannel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShopChannelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Sorting" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserProductWarranty" Relationship="Self.FK_UserProductWarranty_ShopChannel" FromRole="ShopChannel" ToRole="UserProductWarranty" />
+          <NavigationProperty Name="Lottery" Relationship="Self.LotteryShopChannel" FromRole="ShopChannel" ToRole="Lottery" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="AccountName" />
+          </Key>
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneVaildCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneVaildCodeDate" Type="DateTime" Precision="3" />
+          <Property Name="DailyPhoneVaildCount" Type="Int32" Nullable="false" />
+          <Property Name="ResetPasswordCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResetPasswordDate" Type="DateTime" Precision="3" />
+          <Property Name="DailyResetPasswordCodeCount" Type="Int32" Nullable="false" />
+          <Property Name="RegistrationID" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IsVaildPhone" Type="Boolean" />
+          <Property Name="UserInfoVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResetPasswordCount" Type="Int32" />
+          <Property Name="PhoneVaildCount" Type="Int32" />
+          <Property Name="MobileDevice" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserCoupon" Relationship="Self.FK_UserCoupon_User" FromRole="User" ToRole="UserCoupon" />
+          <NavigationProperty Name="UserCourseLocation" Relationship="Self.FK_UserCourseLocation_User" FromRole="User" ToRole="UserCourseLocation" />
+          <NavigationProperty Name="UserProductWarranty" Relationship="Self.FK_UserProductWarranty_User" FromRole="User" ToRole="UserProductWarranty" />
+        </EntityType>
+        <EntityType Name="UserCoupon">
+          <Key>
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AnnouncementID" />
+          </Key>
+          <Property Name="GetDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Invalid" Type="Boolean" Nullable="false" />
+          <Property Name="UseDateTime" Type="DateTime" Precision="3" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AnnouncementID" Type="Int32" Nullable="false" />
+          <Property Name="CouponSNID" Type="Int64" />
+          <NavigationProperty Name="Coupon" Relationship="Self.FK_UserCoupon_Coupon" FromRole="UserCoupon" ToRole="Coupon" />
+          <NavigationProperty Name="CouponSN" Relationship="Self.FK_UserCoupon_CouponSN1" FromRole="UserCoupon" ToRole="CouponSN" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserCoupon_User" FromRole="UserCoupon" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserCourseLocation">
+          <Key>
+            <PropertyRef Name="AnnouncementID" />
+            <PropertyRef Name="SessionID" />
+            <PropertyRef Name="LocationID" />
+            <PropertyRef Name="AccountName" />
+          </Key>
+          <Property Name="AnnouncementID" Type="Int32" Nullable="false" />
+          <Property Name="SessionID" Type="Int32" Nullable="false" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GetDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LimitPersonCount" Type="Int32" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="CourseSNID" Type="Int64" Nullable="false" />
+          <Property Name="RegisteInfoHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CourseLocations" Relationship="Self.FK_UserCourseLocation_CourseLocations" FromRole="UserCourseLocation" ToRole="CourseLocations" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserCourseLocation_User" FromRole="UserCourseLocation" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserProductWarranty">
+          <Key>
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="UserWarrantyID" />
+          </Key>
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserWarrantyID" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="BrandID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MachineTypeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MachineSerialCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HasNoReceipt" Type="Boolean" Nullable="false" />
+          <Property Name="NoReceiptReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiptImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegisteInfoHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SendBackReasonID" Type="Int32" />
+          <Property Name="SendBackReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SendBackTimes" Type="Int32" />
+          <Property Name="ShopChannelID" Type="Int32" />
+          <Property Name="ShopChannel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WarrantyStartDate" Type="DateTime" Precision="3" />
+          <Property Name="WarrantyEndDate" Type="DateTime" Precision="3" />
+          <Property Name="WarrantyMonth" Type="Int32" />
+          <Property Name="ProductWarrantyType" Type="Int32" Nullable="false" />
+          <Property Name="ProductCheckType" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="QRCodeContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SaleAmount" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="CheckUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MachineType" Relationship="Self.FK_UserProductWarranty_MachineType" FromRole="UserProductWarranty" ToRole="MachineType" />
+          <NavigationProperty Name="SendBackReason1" Relationship="Self.FK_UserProductWarranty_SendBackReason" FromRole="UserProductWarranty" ToRole="SendBackReason" />
+          <NavigationProperty Name="ShopChannel1" Relationship="Self.FK_UserProductWarranty_ShopChannel" FromRole="UserProductWarranty" ToRole="ShopChannel" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserProductWarranty_User" FromRole="UserProductWarranty" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Coupon_Announcement1">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Announcement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Coupon">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Announcement">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Announcement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lottery_Announcement">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="1" />
+          <End Role="Lottery" Type="Self.Lottery" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Announcement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Lottery">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BranchCounter_CityList">
+          <End Role="CityList" Type="Self.CityList" Multiplicity="1" />
+          <End Role="BranchCounter" Type="Self.BranchCounter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityList">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="BranchCounter">
+              <PropertyRef Name="AddressCityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CouponSN_Coupon">
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CouponSN" Type="Self.CouponSN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupon">
+              <PropertyRef Name="AnnouncementID" />
+            </Principal>
+            <Dependent Role="CouponSN">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCoupon_Coupon">
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="1" />
+          <End Role="UserCoupon" Type="Self.UserCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupon">
+              <PropertyRef Name="AnnouncementID" />
+            </Principal>
+            <Dependent Role="UserCoupon">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCoupon_CouponSN1">
+          <End Role="CouponSN" Type="Self.CouponSN" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserCoupon" Type="Self.UserCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CouponSN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserCoupon">
+              <PropertyRef Name="CouponSNID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseSession_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CourseSession" Type="Self.CourseSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="AnnouncementID" />
+            </Principal>
+            <Dependent Role="CourseSession">
+              <PropertyRef Name="AnnouncementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseLocations_CourseSession">
+          <End Role="CourseSession" Type="Self.CourseSession" Multiplicity="1" />
+          <End Role="CourseLocations" Type="Self.CourseLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseSession">
+              <PropertyRef Name="AnnouncementID" />
+              <PropertyRef Name="SessionID" />
+            </Principal>
+            <Dependent Role="CourseLocations">
+              <PropertyRef Name="AnnouncementID" />
+              <PropertyRef Name="SessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCourseLocation_CourseLocations">
+          <End Role="CourseLocations" Type="Self.CourseLocations" Multiplicity="1" />
+          <End Role="UserCourseLocation" Type="Self.UserCourseLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseLocations">
+              <PropertyRef Name="AnnouncementID" />
+              <PropertyRef Name="SessionID" />
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="UserCourseLocation">
+              <PropertyRef Name="AnnouncementID" />
+              <PropertyRef Name="SessionID" />
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProductWarranty_MachineType">
+          <End Role="MachineType" Type="Self.MachineType" Multiplicity="1" />
+          <End Role="UserProductWarranty" Type="Self.UserProductWarranty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MachineType">
+              <PropertyRef Name="MachineTypeID" />
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="UserProductWarranty">
+              <PropertyRef Name="MachineTypeID" />
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProductWarranty_SendBackReason">
+          <End Role="SendBackReason" Type="Self.SendBackReason" Multiplicity="0..1" />
+          <End Role="UserProductWarranty" Type="Self.UserProductWarranty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SendBackReason">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProductWarranty">
+              <PropertyRef Name="SendBackReasonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProductWarranty_ShopChannel">
+          <End Role="ShopChannel" Type="Self.ShopChannel" Multiplicity="0..1" />
+          <End Role="UserProductWarranty" Type="Self.UserProductWarranty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShopChannel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProductWarranty">
+              <PropertyRef Name="ShopChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCoupon_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserCoupon" Type="Self.UserCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="AccountName" />
+            </Principal>
+            <Dependent Role="UserCoupon">
+              <PropertyRef Name="AccountName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCourseLocation_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserCourseLocation" Type="Self.UserCourseLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="AccountName" />
+            </Principal>
+            <Dependent Role="UserCourseLocation">
+              <PropertyRef Name="AccountName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProductWarranty_User">
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserProductWarranty" Type="Self.UserProductWarranty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="AccountName" />
+            </Principal>
+            <Dependent Role="UserProductWarranty">
+              <PropertyRef Name="AccountName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AnnouncementBranchCounter">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
+          <End Role="BranchCounter" Type="Self.BranchCounter" Multiplicity="*" />
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <Association Name="CouponBranchCounter">
+          <End Role="BranchCounter" Type="Self.BranchCounter" Multiplicity="*" />
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="*" />
+        </Association>
+        <Association Name="LotteryBranchCounter">
+          <End Role="BranchCounter" Type="Self.BranchCounter" Multiplicity="*" />
+          <End Role="Lottery" Type="Self.Lottery" Multiplicity="*" />
+        </Association>
+        <Association Name="LotteryShopChannel">
+          <End Role="Lottery" Type="Self.Lottery" Multiplicity="*" />
+          <End Role="ShopChannel" Type="Self.ShopChannel" Multiplicity="*" />
+        </Association>
+        <Association Name="SuppliesNoticeMachineType">
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
+          <End Role="MachineType" Type="Self.MachineType" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="HLHApp_DemoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Announcement" EntityType="Self.Announcement" />
+          <EntitySet Name="Arguments" EntityType="Self.Arguments" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="BranchCounter" EntityType="Self.BranchCounter" />
+          <EntitySet Name="CityList" EntityType="Self.CityList" />
+          <EntitySet Name="Coupon" EntityType="Self.Coupon" />
+          <EntitySet Name="CouponSN" EntityType="Self.CouponSN" />
+          <EntitySet Name="Course" EntityType="Self.Course" />
+          <EntitySet Name="CourseLocations" EntityType="Self.CourseLocations" />
+          <EntitySet Name="CourseSession" EntityType="Self.CourseSession" />
+          <EntitySet Name="Lottery" EntityType="Self.Lottery" />
+          <EntitySet Name="MachineType" EntityType="Self.MachineType" />
+          <EntitySet Name="SendBackReason" EntityType="Self.SendBackReason" />
+          <EntitySet Name="ShopChannel" EntityType="Self.ShopChannel" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="UserCoupon" EntityType="Self.UserCoupon" />
+          <EntitySet Name="UserCourseLocation" EntityType="Self.UserCourseLocation" />
+          <EntitySet Name="UserProductWarranty" EntityType="Self.UserProductWarranty" />
+          <AssociationSet Name="FK_Coupon_Announcement1" Association="Self.FK_Coupon_Announcement1">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="Coupon" EntitySet="Coupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Announcement" Association="Self.FK_Course_Announcement">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lottery_Announcement" Association="Self.FK_Lottery_Announcement">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="Lottery" EntitySet="Lottery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchCounter_CityList" Association="Self.FK_BranchCounter_CityList">
+            <End Role="CityList" EntitySet="CityList" />
+            <End Role="BranchCounter" EntitySet="BranchCounter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CouponSN_Coupon" Association="Self.FK_CouponSN_Coupon">
+            <End Role="Coupon" EntitySet="Coupon" />
+            <End Role="CouponSN" EntitySet="CouponSN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCoupon_Coupon" Association="Self.FK_UserCoupon_Coupon">
+            <End Role="Coupon" EntitySet="Coupon" />
+            <End Role="UserCoupon" EntitySet="UserCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCoupon_CouponSN1" Association="Self.FK_UserCoupon_CouponSN1">
+            <End Role="CouponSN" EntitySet="CouponSN" />
+            <End Role="UserCoupon" EntitySet="UserCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseSession_Course" Association="Self.FK_CourseSession_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="CourseSession" EntitySet="CourseSession" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseLocations_CourseSession" Association="Self.FK_CourseLocations_CourseSession">
+            <End Role="CourseSession" EntitySet="CourseSession" />
+            <End Role="CourseLocations" EntitySet="CourseLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCourseLocation_CourseLocations" Association="Self.FK_UserCourseLocation_CourseLocations">
+            <End Role="CourseLocations" EntitySet="CourseLocations" />
+            <End Role="UserCourseLocation" EntitySet="UserCourseLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProductWarranty_MachineType" Association="Self.FK_UserProductWarranty_MachineType">
+            <End Role="MachineType" EntitySet="MachineType" />
+            <End Role="UserProductWarranty" EntitySet="UserProductWarranty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProductWarranty_SendBackReason" Association="Self.FK_UserProductWarranty_SendBackReason">
+            <End Role="SendBackReason" EntitySet="SendBackReason" />
+            <End Role="UserProductWarranty" EntitySet="UserProductWarranty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProductWarranty_ShopChannel" Association="Self.FK_UserProductWarranty_ShopChannel">
+            <End Role="ShopChannel" EntitySet="ShopChannel" />
+            <End Role="UserProductWarranty" EntitySet="UserProductWarranty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCoupon_User" Association="Self.FK_UserCoupon_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserCoupon" EntitySet="UserCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCourseLocation_User" Association="Self.FK_UserCourseLocation_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserCourseLocation" EntitySet="UserCourseLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProductWarranty_User" Association="Self.FK_UserProductWarranty_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserProductWarranty" EntitySet="UserProductWarranty" />
+          </AssociationSet>
+          <AssociationSet Name="AnnouncementBranchCounter" Association="Self.AnnouncementBranchCounter">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="BranchCounter" EntitySet="BranchCounter" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="CouponBranchCounter" Association="Self.CouponBranchCounter">
+            <End Role="BranchCounter" EntitySet="BranchCounter" />
+            <End Role="Coupon" EntitySet="Coupon" />
+          </AssociationSet>
+          <AssociationSet Name="LotteryBranchCounter" Association="Self.LotteryBranchCounter">
+            <End Role="BranchCounter" EntitySet="BranchCounter" />
+            <End Role="Lottery" EntitySet="Lottery" />
+          </AssociationSet>
+          <AssociationSet Name="LotteryShopChannel" Association="Self.LotteryShopChannel">
+            <End Role="Lottery" EntitySet="Lottery" />
+            <End Role="ShopChannel" EntitySet="ShopChannel" />
+          </AssociationSet>
+          <AssociationSet Name="SuppliesNoticeMachineType" Association="Self.SuppliesNoticeMachineType">
+            <End Role="Announcement" EntitySet="Announcement" />
+            <End Role="MachineType" EntitySet="MachineType" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HLHApp_DemoModelStoreContainer" CdmEntityContainer="HLHApp_DemoEntities">
+          <EntitySetMapping Name="Announcement">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.Announcement">
+              <MappingFragment StoreEntitySet="Announcement">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="PreviewImagePath" ColumnName="PreviewImagePath" />
+                <ScalarProperty Name="ContentImagePath" ColumnName="ContentImagePath" />
+                <ScalarProperty Name="TopMost" ColumnName="TopMost" />
+                <ScalarProperty Name="PostStartDate" ColumnName="PostStartDate" />
+                <ScalarProperty Name="PostEndDate" ColumnName="PostEndDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="NoticeType" ColumnName="NoticeType" />
+                <ScalarProperty Name="NoticeTarget" ColumnName="NoticeTarget" />
+                <ScalarProperty Name="CustomizeNoticeUser" ColumnName="CustomizeNoticeUser" />
+                <ScalarProperty Name="removeUserID" ColumnName="removeUserID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="IsPerformance" ColumnName="IsPerformance" />
+                <ScalarProperty Name="hasPushed" ColumnName="hasPushed" />
+                <ScalarProperty Name="IsPubilc" ColumnName="IsPubilc" />
+                <ScalarProperty Name="DescriptionOfAddress" ColumnName="DescriptionOfAddress" />
+                <ScalarProperty Name="DescriptionOfAddressIsURL" ColumnName="DescriptionOfAddressIsURL" />
+                <ScalarProperty Name="AnnouncementType" ColumnName="AnnouncementType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Arguments">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.Arguments">
+              <MappingFragment StoreEntitySet="Arguments">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PageAuth" ColumnName="PageAuth" />
+                <ScalarProperty Name="DataRange" ColumnName="DataRange" />
+                <ScalarProperty Name="BusinessType" ColumnName="BusinessType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PageAuth" ColumnName="PageAuth" />
+                <ScalarProperty Name="DataRange" ColumnName="DataRange" />
+                <ScalarProperty Name="BusinessType" ColumnName="BusinessType" />
+                <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="CorpUserID" ColumnName="CorpUserID" />
+                <ScalarProperty Name="CorpUserName" ColumnName="CorpUserName" />
+                <ScalarProperty Name="BrandAuth" ColumnName="BrandAuth" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BranchCounter">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.BranchCounter">
+              <MappingFragment StoreEntitySet="BranchCounter">
+                <ScalarProperty Name="BranchCounterID" ColumnName="BranchCounterID" />
+                <ScalarProperty Name="BranchCounterName" ColumnName="BranchCounterName" />
+                <ScalarProperty Name="TelephoneArea" ColumnName="TelephoneArea" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="AddressCityID" ColumnName="AddressCityID" />
+                <ScalarProperty Name="AddressArea" ColumnName="AddressArea" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="TradingTime1" ColumnName="TradingTime1" />
+                <ScalarProperty Name="TradingTime2" ColumnName="TradingTime2" />
+                <ScalarProperty Name="TradingTime3" ColumnName="TradingTime3" />
+                <ScalarProperty Name="TransporInfo" ColumnName="TransporInfo" />
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CityList">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.CityList">
+              <MappingFragment StoreEntitySet="CityList">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coupon">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.Coupon">
+              <MappingFragment StoreEntitySet="Coupon">
+                <ScalarProperty Name="CouponCount" ColumnName="CouponCount" />
+                <ScalarProperty Name="CurrentCount" ColumnName="CurrentCount" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+                <ScalarProperty Name="ExchangeStartDate" ColumnName="ExchangeStartDate" />
+                <ScalarProperty Name="ExchangeEndDate" ColumnName="ExchangeEndDate" />
+                <ScalarProperty Name="LimitAmountOfPurchase" ColumnName="LimitAmountOfPurchase" />
+                <ScalarProperty Name="LimitOther" ColumnName="LimitOther" />
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+                <ScalarProperty Name="ActiveStartDate" ColumnName="ActiveStartDate" />
+                <ScalarProperty Name="ActiveEndDate" ColumnName="ActiveEndDate" />
+                <ScalarProperty Name="DescriptionOfUse" ColumnName="DescriptionOfUse" />
+                <ScalarProperty Name="DescriptionOfOther" ColumnName="DescriptionOfOther" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CouponSN">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.CouponSN">
+              <MappingFragment StoreEntitySet="CouponSN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SerialCode" ColumnName="SerialCode" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="SignupEndDate" ColumnName="SignupEndDate" />
+                <ScalarProperty Name="SignupStartDate" ColumnName="SignupStartDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseLocations">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.CourseLocations">
+              <MappingFragment StoreEntitySet="CourseLocations">
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="LimitCompanionCount" ColumnName="LimitCompanionCount" />
+                <ScalarProperty Name="LimitPersonCount" ColumnName="LimitPersonCount" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="BranchCounterID" ColumnName="BranchCounterID" />
+                <ScalarProperty Name="BranchCounterName" ColumnName="BranchCounterName" />
+                <ScalarProperty Name="BranchCounterCityID" ColumnName="BranchCounterCityID" />
+                <ScalarProperty Name="BranchCounterCityName" ColumnName="BranchCounterCityName" />
+                <ScalarProperty Name="BranchCounterAddress" ColumnName="BranchCounterAddress" />
+                <ScalarProperty Name="NowActiveCount" ColumnName="NowActiveCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseSession">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.CourseSession">
+              <MappingFragment StoreEntitySet="CourseSession">
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="SessionStartDate" ColumnName="SessionStartDate" />
+                <ScalarProperty Name="SessionEndDate" ColumnName="SessionEndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lottery">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.Lottery">
+              <MappingFragment StoreEntitySet="Lottery">
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+                <ScalarProperty Name="ActiveStartDate" ColumnName="ActiveStartDate" />
+                <ScalarProperty Name="ActiveEndDate" ColumnName="ActiveEndDate" />
+                <ScalarProperty Name="LimitPurchase" ColumnName="LimitPurchase" />
+                <ScalarProperty Name="Precautions" ColumnName="Precautions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MachineType">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.MachineType">
+              <MappingFragment StoreEntitySet="MachineType">
+                <ScalarProperty Name="MachineTypeID" ColumnName="MachineTypeID" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="MachineSerialCodeImagePath" ColumnName="MachineSerialCodeImagePath" />
+                <ScalarProperty Name="ProductImagePath" ColumnName="ProductImagePath" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="MachineTypeName" ColumnName="MachineTypeName" />
+                <ScalarProperty Name="MachineSerialCodeDescription" ColumnName="MachineSerialCodeDescription" />
+                <ScalarProperty Name="ShopSuppliesURL" ColumnName="ShopSuppliesURL" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SendBackReason">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.SendBackReason">
+              <MappingFragment StoreEntitySet="SendBackReason">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SendBackReasonName" ColumnName="SendBackReasonName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShopChannel">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.ShopChannel">
+              <MappingFragment StoreEntitySet="ShopChannel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ShopChannelName" ColumnName="ShopChannelName" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Sorting" ColumnName="Sorting" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="PhoneVaildCode" ColumnName="PhoneVaildCode" />
+                <ScalarProperty Name="PhoneVaildCodeDate" ColumnName="PhoneVaildCodeDate" />
+                <ScalarProperty Name="DailyPhoneVaildCount" ColumnName="DailyPhoneVaildCount" />
+                <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
+                <ScalarProperty Name="ResetPasswordDate" ColumnName="ResetPasswordDate" />
+                <ScalarProperty Name="DailyResetPasswordCodeCount" ColumnName="DailyResetPasswordCodeCount" />
+                <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+                <ScalarProperty Name="IsVaildPhone" ColumnName="IsVaildPhone" />
+                <ScalarProperty Name="UserInfoVersion" ColumnName="UserInfoVersion" />
+                <ScalarProperty Name="ResetPasswordCount" ColumnName="ResetPasswordCount" />
+                <ScalarProperty Name="PhoneVaildCount" ColumnName="PhoneVaildCount" />
+                <ScalarProperty Name="MobileDevice" ColumnName="MobileDevice" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCoupon">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.UserCoupon">
+              <MappingFragment StoreEntitySet="UserCoupon">
+                <ScalarProperty Name="GetDateTime" ColumnName="GetDateTime" />
+                <ScalarProperty Name="Invalid" ColumnName="Invalid" />
+                <ScalarProperty Name="UseDateTime" ColumnName="UseDateTime" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+                <ScalarProperty Name="CouponSNID" ColumnName="CouponSNID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCourseLocation">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.UserCourseLocation">
+              <MappingFragment StoreEntitySet="UserCourseLocation">
+                <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="GetDateTime" ColumnName="GetDateTime" />
+                <ScalarProperty Name="LimitPersonCount" ColumnName="LimitPersonCount" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="CourseSNID" ColumnName="CourseSNID" />
+                <ScalarProperty Name="RegisteInfoHistory" ColumnName="RegisteInfoHistory" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProductWarranty">
+            <EntityTypeMapping TypeName="HLHApp_DemoModel.UserProductWarranty">
+              <MappingFragment StoreEntitySet="UserProductWarranty">
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="UserWarrantyID" ColumnName="UserWarrantyID" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="MachineTypeID" ColumnName="MachineTypeID" />
+                <ScalarProperty Name="MachineSerialCode" ColumnName="MachineSerialCode" />
+                <ScalarProperty Name="HasNoReceipt" ColumnName="HasNoReceipt" />
+                <ScalarProperty Name="NoReceiptReason" ColumnName="NoReceiptReason" />
+                <ScalarProperty Name="ReceiptImagePath" ColumnName="ReceiptImagePath" />
+                <ScalarProperty Name="RegisteInfoHistory" ColumnName="RegisteInfoHistory" />
+                <ScalarProperty Name="SendBackReasonID" ColumnName="SendBackReasonID" />
+                <ScalarProperty Name="SendBackReason" ColumnName="SendBackReason" />
+                <ScalarProperty Name="SendBackTimes" ColumnName="SendBackTimes" />
+                <ScalarProperty Name="ShopChannelID" ColumnName="ShopChannelID" />
+                <ScalarProperty Name="ShopChannel" ColumnName="ShopChannel" />
+                <ScalarProperty Name="WarrantyStartDate" ColumnName="WarrantyStartDate" />
+                <ScalarProperty Name="WarrantyEndDate" ColumnName="WarrantyEndDate" />
+                <ScalarProperty Name="WarrantyMonth" ColumnName="WarrantyMonth" />
+                <ScalarProperty Name="ProductWarrantyType" ColumnName="ProductWarrantyType" />
+                <ScalarProperty Name="ProductCheckType" ColumnName="ProductCheckType" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="QRCodeContent" ColumnName="QRCodeContent" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="SaleAmount" ColumnName="SaleAmount" />
+                <ScalarProperty Name="CheckUser" ColumnName="CheckUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AnnouncementBranchCounter" TypeName="HLHApp_DemoModel.AnnouncementBranchCounter" StoreEntitySet="AnnouncementBranchCounter">
+            <EndProperty Name="Announcement">
+              <ScalarProperty Name="ID" ColumnName="AnnouncementID" />
+            </EndProperty>
+            <EndProperty Name="BranchCounter">
+              <ScalarProperty Name="BranchCounterID" ColumnName="BranchCounterID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="HLHApp_DemoModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CouponBranchCounter" TypeName="HLHApp_DemoModel.CouponBranchCounter" StoreEntitySet="CouponBranchCounter">
+            <EndProperty Name="BranchCounter">
+              <ScalarProperty Name="BranchCounterID" ColumnName="BranchCounterID" />
+            </EndProperty>
+            <EndProperty Name="Coupon">
+              <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="LotteryBranchCounter" TypeName="HLHApp_DemoModel.LotteryBranchCounter" StoreEntitySet="LotteryBranchCounter">
+            <EndProperty Name="BranchCounter">
+              <ScalarProperty Name="BranchCounterID" ColumnName="BranchCounterID" />
+            </EndProperty>
+            <EndProperty Name="Lottery">
+              <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="LotteryShopChannel" TypeName="HLHApp_DemoModel.LotteryShopChannel" StoreEntitySet="LotteryShopChannel">
+            <EndProperty Name="Lottery">
+              <ScalarProperty Name="AnnouncementID" ColumnName="AnnouncementID" />
+            </EndProperty>
+            <EndProperty Name="ShopChannel">
+              <ScalarProperty Name="ID" ColumnName="ShopChannelID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SuppliesNoticeMachineType" TypeName="HLHApp_DemoModel.SuppliesNoticeMachineType" StoreEntitySet="SuppliesNoticeMachineType">
+            <EndProperty Name="Announcement">
+              <ScalarProperty Name="ID" ColumnName="AnnouncementID" />
+            </EndProperty>
+            <EndProperty Name="MachineType">
+              <ScalarProperty Name="MachineTypeID" ColumnName="MachineTypeID" />
+              <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

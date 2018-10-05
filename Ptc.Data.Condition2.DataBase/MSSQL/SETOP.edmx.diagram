@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="736c9df848534ce7bbe404d5e8b9fb96" Name="Diagram1">
+        <EntityTypeShape EntityType="OPMainModel.ActivityItem" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.ActivityItemVoucher" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.AspNetRoles" Width="1.5" PointX="10.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.AspNetRolesDataRange" Width="1.5" PointX="13" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.AspNetRolesPageAuth" Width="1.5" PointX="13" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.AspNetUserClaims" Width="1.5" PointX="15.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.AspNetUserLogins" Width="1.5" PointX="15.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.AspNetUsers" Width="1.5" PointX="13" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.AspNetUsersDataRange" Width="1.5" PointX="15.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.AspNetUsersPageAuth" Width="1.5" PointX="15.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.Bank" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.Banner" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.Brand" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.Category" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.CompareString" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.ExchangeCondition" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.Item" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.MemberFavoriteActivityItem" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.OpenPointMemberStar" Width="1.5" PointX="5.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.PageContent" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.RewardActivity" Width="1.5" PointX="0.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.StopMachine" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.TempVoucherHeader" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OPMainModel.VoucherHeader" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="OPMainModel.FK_ActivityItem_ActivityItem" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_ActivityItem_Bank" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_ActivityItem_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_ActivityItem_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_ActivityItem_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_ActivityItem_RewardActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_ActivityItemVoucher_ActivityItem" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_ExchangeCondition_ActivityProject" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_OpenPointMemberStar_ActivityItem" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_AspNetRolesDataRange_AspNetRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_AspNetRolesPageAuth_AspNetRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_AspNetUsersDataRange_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_AspNetUsersPageAuth_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_Activity_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_Item_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_Category_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.FK_Item_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="OPMainModel.BannerItem" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
